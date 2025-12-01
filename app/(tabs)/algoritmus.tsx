@@ -1,87 +1,204 @@
-import React, { useState, useEffect } from "react";
-import { View, Text, TextInput, Button, ScrollView, StyleSheet } from "react-native";
-import * as FileSystem from "expo-file-system";
-import { Asset } from "expo-asset";
-import { runAlgoritmus } from "../lib/algorithms/runAlgoritmus";
+// ==============================
+// app/(tabs)/algoritmus.tsx
+// Teljes copy & paste verzió
+// ==============================
+//
+// FONTOS: A fájl helye: app/(tabs)/algoritmus.tsx
+// A runAlgoritmus fájl helye: lib/algorithms/runAlgoritmus.ts
+// Mivel két szinttel feljebb kell menni (app/(tabs) -> app -> gyökér),
+// a helyes relatív útvonal: ../../lib/algorithms/runAlgoritmus
+//
+// Ha a runAlgoritmus.ts NAMED exportot használ:
+//   export function runAlgoritmus(...) { ... }
+// akkor így importáld (EZ van most itt beállítva):
+//   import { runAlgoritmus } from "../../lib/algorithms/runAlgoritmus";
+//
+// Ha DEFAULT export van benne:
+//   export default function runAlgoritmus(...) { ... }
+// akkor módosítsd erre:
+//   import runAlgoritmus from "../../lib/algorithms/runAlgoritmus";
+//
+// Ha alias rendszert szeretnél (pl. @lib/algorithms/runAlgoritmus):
+//   - tsconfig.json-ben add hozzá:
+//       "baseUrl": ".",
+//       "paths": { "@lib/*": ["lib/*"] }
+//   - és import: import { runAlgoritmus } from "@lib/algorithms/runAlgoritmus";
+//   Metro restart: npx expo start -c
+//
+// ==============================
+
+import React, { useState, useCallback } from "react";
+import { View, Text, TextInput, StyleSheet, Pressable, ActivityIndicator, ScrollView } from "react-native";
+import { useFocusEffect } from "expo-router";
+// Ha NAMED export:
+import { runAlgoritmus } from "../../lib/algorithms/runAlgoritmus";
+// Ha DEFAULT export lenne, akkor a fenti sort cseréld erre:
+// import runAlgoritmus from "../../lib/algorithms/runAlgoritmus";
+
+type PredictionResult = {
+  home: string;
+  away: string;
+  prediction: {
+    homeGoals: number;
+    awayGoals: number;
+  };
+  [key: string]: any;
+};
 
 export default function AlgoritmusScreen() {
   const [homeTeam, setHomeTeam] = useState("Ferencváros");
   const [awayTeam, setAwayTeam] = useState("Újpest");
-  const [homeOdds, setHomeOdds] = useState("1.85");
-  const [drawOdds, setDrawOdds] = useState("3.40");
-  const [awayOdds, setAwayOdds] = useState("4.20");
-  const [result, setResult] = useState<any>(null);
-  const [rawLoaded, setRawLoaded] = useState<string>("");
+  const [result, setResult] = useState<PredictionResult | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
-  useEffect(() => {
-    (async () => {
-      const asset = Asset.fromModule(require("../assets/football/matches.txt"));
-      await asset.downloadAsync();
-      const txt = await FileSystem.readAsStringAsync(asset.localUri!);
-      setRawLoaded(txt);
-    })();
-  }, []);
+  // Példa: fókusz eseményeknél reset
+  useFocusEffect(
+    useCallback(() => {
+      setErrorMsg("");
+      return () => {};
+    }, [])
+  );
 
-  function calculate() {
-    if (!rawLoaded) return;
-    const market = {
-      home: parseFloat(homeOdds),
-      draw: parseFloat(drawOdds),
-      away: parseFloat(awayOdds),
-    };
-    const out = runAlgoritmus(rawLoaded, homeTeam, awayTeam, market);
-    setResult(out);
-  }
+  const handleRun = async () => {
+    setLoading(true);
+    setErrorMsg("");
+    setResult(null);
+    try {
+      // Itt futtatjuk a tényleges algoritmust
+      const r = runAlgoritmus(homeTeam, awayTeam);
+      setResult(r);
+    } catch (err: any) {
+      setErrorMsg(err?.message || "Ismeretlen hiba");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>Foci Tipp Algoritmus</Text>
-      <Text style={styles.label}>Hazai csapat</Text>
-      <TextInput style={styles.input} value={homeTeam} onChangeText={setHomeTeam} />
-      <Text style={styles.label}>Vendég csapat</Text>
-      <TextInput style={styles.input} value={awayTeam} onChangeText={setAwayTeam} />
-      <Text style={styles.label}>Odds (Home / Draw / Away)</Text>
-      <View style={styles.row}>
-        <TextInput style={[styles.input, styles.odds]} value={homeOdds} onChangeText={setHomeOdds} keyboardType="decimal-pad" />
-        <TextInput style={[styles.input, styles.odds]} value={drawOdds} onChangeText={setDrawOdds} keyboardType="decimal-pad" />
-        <TextInput style={[styles.input, styles.odds]} value={awayOdds} onChangeText={setAwayOdds} keyboardType="decimal-pad" />
+      <Text style={styles.title}>Algoritmus</Text>
+
+      <View style={styles.field}>
+        <Text style={styles.label}>Hazai csapat:</Text>
+        <TextInput
+          style={styles.input}
+          value={homeTeam}
+          onChangeText={setHomeTeam}
+          placeholder="Hazai csapat"
+          autoCapitalize="none"
+        />
       </View>
-      <Button title="Számol" onPress={calculate} disabled={!rawLoaded} />
+
+      <View style={styles.field}>
+        <Text style={styles.label}>Vendég csapat:</Text>
+        <TextInput
+          style={styles.input}
+          value={awayTeam}
+          onChangeText={setAwayTeam}
+          placeholder="Vendég csapat"
+          autoCapitalize="none"
+        />
+      </View>
+
+      <Pressable style={styles.button} onPress={handleRun} disabled={loading}>
+        {loading ? <ActivityIndicator color="#fff" /> : <Text style={styles.buttonText}>Futtasd</Text>}
+      </Pressable>
+
+      {errorMsg ? <Text style={styles.error}>Hiba: {errorMsg}</Text> : null}
 
       {result && (
-        <View style={styles.block}>
-          <Text style={styles.subtitle}>Valószínűségek</Text>
-            <Text>Home win: {(result.probs.homeWin * 100).toFixed(2)}%</Text>
-            <Text>Draw: {(result.probs.draw * 100).toFixed(2)}%</Text>
-            <Text>Away win: {(result.probs.awayWin * 100).toFixed(2)}%</Text>
-            <Text style={styles.subtitle}>Legvalószínűbb tipp: {result.tip.tip} ({(result.tip.prob*100).toFixed(2)}%)</Text>
-            <Text style={styles.subtitle}>Fair odds</Text>
-            <Text>Home: {result.fairOdds.home.toFixed(2)} | Draw: {result.fairOdds.draw.toFixed(2)} | Away: {result.fairOdds.away.toFixed(2)}</Text>
-            <Text style={styles.subtitle}>Gólvárakozás (λ)</Text>
-            <Text>Hazai: {result.lambdaHome.toFixed(2)} | Vendég: {result.lambdaAway.toFixed(2)}</Text>
-            {!!result.kelly.length && (
-              <>
-                <Text style={styles.subtitle}>Kelly (0.25 frakció)</Text>
-                {result.kelly.map((k: any) => (
-                  <Text key={k.selection}>
-                    {k.selection}: prob {(k.prob*100).toFixed(1)}% odds {k.odds} stake fraction {(k.fraction*100).toFixed(2)}%
-                  </Text>
-                ))}
-              </>
-            )}
+        <View style={styles.resultBox}>
+          <Text style={styles.resultTitle}>Eredmény</Text>
+          <Text style={styles.resultLine}>
+            {result.home} vs {result.away}
+          </Text>
+          <Text style={styles.resultLine}>
+            Góljai (becslés): {result.prediction.homeGoals.toFixed(2)} - {result.prediction.awayGoals.toFixed(2)}
+          </Text>
+          {/* Ha a runAlgoritmus további mezőket ad vissza, itt jelenítsd meg */}
+          {Object.keys(result)
+            .filter((k) => !["home", "away", "prediction"].includes(k))
+            .map((extraKey) => (
+              <Text key={extraKey} style={styles.resultExtra}>
+                {extraKey}: {JSON.stringify((result as any)[extraKey])}
+              </Text>
+            ))}
         </View>
       )}
     </ScrollView>
   );
 }
 
+// ==============================
+// Stílusok
+// ==============================
 const styles = StyleSheet.create({
-  container: { padding: 16 },
-  title: { fontSize: 22, fontWeight: "600", marginBottom: 12 },
-  subtitle: { marginTop: 12, fontWeight: "600" },
-  label: { marginTop: 8, fontWeight: "500" },
-  input: { borderWidth: 1, borderColor: "#ccc", padding: 8, borderRadius: 6, marginTop: 4, flex: 1 },
-  row: { flexDirection: "row", gap: 8, marginVertical: 8 },
-  odds: { flex: 1 },
-  block: { marginTop: 16, padding: 12, backgroundColor: "#f4f6fa", borderRadius: 8 }
+  container: {
+    padding: 18,
+    backgroundColor: "#101418",
+    flexGrow: 1
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "600",
+    marginBottom: 16,
+    color: "#fff"
+  },
+  field: {
+    marginBottom: 14
+  },
+  label: {
+    color: "#ddd",
+    marginBottom: 6,
+    fontSize: 14
+  },
+  input: {
+    backgroundColor: "#1e242b",
+    color: "#fff",
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    borderRadius: 6,
+    borderWidth: 1,
+    borderColor: "#2f3a44",
+    fontSize: 15
+  },
+  button: {
+    backgroundColor: "#3273dc",
+    paddingVertical: 12,
+    borderRadius: 6,
+    alignItems: "center",
+    marginTop: 4,
+    marginBottom: 18
+  },
+  buttonText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "600"
+  },
+  error: {
+    color: "#ff5f56",
+    marginBottom: 12
+  },
+  resultBox: {
+    backgroundColor: "#182028",
+    borderRadius: 8,
+    padding: 14,
+    borderWidth: 1,
+    borderColor: "#2f3a44"
+  },
+  resultTitle: {
+    fontSize: 18,
+    fontWeight: "600",
+    marginBottom: 8,
+    color: "#fff"
+  },
+  resultLine: {
+    color: "#cfd8dc",
+    marginBottom: 4
+  },
+  resultExtra: {
+    color: "#9fb3c8",
+    fontSize: 12
+  }
 });

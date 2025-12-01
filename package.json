@@ -11,11 +11,13 @@
     "lint": "expo lint"
   },
   "dependencies": {
+    "@expo/metro-runtime": "~6.1.2",
     "@expo/vector-icons": "^15.0.3",
+    "@react-native/monorepo": "file:rn54.tar.gz",
     "@react-navigation/bottom-tabs": "^7.4.0",
     "@react-navigation/elements": "^2.6.3",
     "@react-navigation/native": "^7.1.8",
-    "expo": "^54.0.25",
+    "expo": "~54.0.25",
     "expo-asset": "~12.0.10",
     "expo-constants": "~18.0.10",
     "expo-file-system": "~19.0.19",
@@ -30,9 +32,11 @@
     "expo-symbols": "~1.0.7",
     "expo-system-ui": "~6.0.8",
     "expo-web-browser": "~15.0.9",
+    "install": "^0.13.0",
+    "npx": "^10.2.2",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-54.tar.gz",
+    "react-native": "0.81.5",
     "react-native-gesture-handler": "~2.28.0",
     "react-native-reanimated": "~4.1.1",
     "react-native-safe-area-context": "~5.6.0",
@@ -46,8 +50,10 @@
     "eas-cli": "^0.0.0",
     "eslint": "^9.25.0",
     "eslint-config-expo": "~10.0.0",
-    "expo-cli": "^4.9.1",
     "typescript": "~5.9.2"
   },
-  "private": true
+  "private": true,
+  "overrides": {
+    "react-native": ""
+  }
 }
