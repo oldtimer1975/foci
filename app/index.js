@@ -1,37 +1,22 @@
 import React, { useRef, useState } from "react";
 import {
-  View,
-  Text,
-  Pressable,
-  StyleSheet,
-  ImageBackground,
-  Dimensions,
-  Animated,
-  Platform,
+  View, Text, Pressable, StyleSheet, Dimensions, Animated, ImageBackground
 } from "react-native";
 import { useRouter } from "expo-router";
-import { TIME_WINDOWS } from "../api/footballApi";
 
+const BG = require("../assets/background.jpg"); // háttérkép
 const { width: SCREEN_W, height: SCREEN_H } = Dimensions.get("window");
 
-// egyszerű, mobilra optimalizált hotspotok (relX/relY relatív a képernyőhöz)
+// három időablak + a Tuti külön gomb
 const BALLS = [
-  { label: "0-8 óra", relX: 0.18, relY: 0.72, relSize: 0.26 },
-  { label: "8-16 óra", relX: 0.50, relY: 0.60, relSize: 0.18 },
-  { label: "16-24 óra", relX: 0.82, relY: 0.74, relSize: 0.12 },
+  { label: "0–8 óra", window: "00:00-08:00" },
+  { label: "8–16 óra", window: "08:00-16:00" },
+  { label: "16–24 óra", window: "16:00-24:00" },
 ];
 
 export default function IndexScreen() {
   const router = useRouter();
-  const [container, setContainer] = useState({ w: SCREEN_W, h: SCREEN_H });
-  const [selectedIndex, setSelectedIndex] = useState(null);
-  const pressTimer = useRef(null);
   const scales = useRef(BALLS.map(() => new Animated.Value(1))).current;
-
-  function onLayout(e) {
-    const { width, height } = e.nativeEvent.layout;
-    setContainer({ w: width, h: height });
-  }
 
   function animatePress(i) {
     Animated.sequence([
@@ -41,128 +26,69 @@ export default function IndexScreen() {
     ]).start();
   }
 
-  function handleBallPress(index) {
-    animatePress(index);
-
-    // első nyomás = kijelölés + infó megjelenítése
-    if (selectedIndex !== index) {
-      setSelectedIndex(index);
-      if (pressTimer.current) clearTimeout(pressTimer.current);
-      pressTimer.current = setTimeout(() => {
-        setSelectedIndex(null);
-        pressTimer.current = null;
-      }, 5000);
-      return;
-    }
-
-    // második nyomás ugyanarra = navigálás a meccsszám választóra
-    if (pressTimer.current) {
-      clearTimeout(pressTimer.current);
-      pressTimer.current = null;
-    }
-    setSelectedIndex(null);
-    const winKey = TIME_WINDOWS[index]?.key ?? TIME_WINDOWS[0].key;
-    router.push({ pathname: "/MeccsszamValaszto", params: { windowKey: winKey } });
+  function gotoWindowPicker(windowVal) {
+    // a régi logikád szerint
+    router.push({ pathname: "/_components/MeccsszamValaszto", params: { window: windowVal } });
   }
 
-  function getAbsStyle(ball) {
-    const size = Math.round(container.w * ball.relSize);
-    const left = Math.round(container.w * ball.relX) - Math.round(size / 2);
-    const top = Math.round(container.h * ball.relY) - Math.round(size / 2);
-    return { width: size, height: size, borderRadius: size / 2, left, top };
+  function gotoTutiDaily(defaultCount = 6) {
+    router.push({ pathname: "/(tabs)/tuti", params: { window: "00:00-23:59", count: String(defaultCount) } });
   }
 
   return (
-    <ImageBackground
-      source={require("../assets/background.jpg")}
-      style={styles.bg}
-      imageStyle={{ resizeMode: "cover", opacity: 0.96 }}
-    >
-      <View style={styles.wrapper} onLayout={onLayout}>
-        <Text style={styles.title}>⚽ Okosfoci Tippmix</Text>
+    <ImageBackground source={BG} style={styles.bg} imageStyle={styles.bgImg}>
+      <View style={styles.overlay}>
+        {/* Cím és alcím – a screenshotodhoz igazítva */}
+        <Text style={styles.title}><Text style={{ fontSize: 22 }}>⚽</Text> Okosfoci Tippmix</Text>
+        <Text style={styles.subtitle}>
+          Válassz időablakot egy labdára koppintva! Modern sport dizájn — Okosfoci 🚀
+        </Text>
 
-        <View style={styles.ballsLayer} pointerEvents="box-none">
-          {BALLS.map((b, idx) => {
-            const absStyle = getAbsStyle(b);
-            const isSelected = selectedIndex === idx;
-            return (
-              <Animated.View
-                key={idx}
-                style={[styles.ballRoot, absStyle, { transform: [{ scale: scales[idx] }] }]}
-                pointerEvents="box-none"
+        {/* Fehér gombok sorban: reggeli, napi, esti */}
+        <View style={styles.row}>
+          {BALLS.map((b, i) => (
+            <Animated.View key={b.window} style={{ transform: [{ scale: scales[i] }] }}>
+              <Pressable
+                onPress={() => { animatePress(i); gotoWindowPicker(b.window); }}
+                style={({ pressed }) => [styles.whiteBtn, pressed ? styles.whiteBtnPressed : null]}
               >
-                <Pressable
-                  onPress={() => handleBallPress(idx)}
-                  style={({ pressed }) => [
-                    styles.ball,
-                    {
-                      borderColor: isSelected ? "#33ffb0" : "#45eba5",
-                      backgroundColor: pressed ? "rgba(255,255,255,0.06)" : "rgba(255,255,255,0.02)",
-                      shadowOpacity: isSelected ? 0.32 : 0.16,
-                    },
-                  ]}
-                  android_ripple={{ color: "rgba(69,235,165,0.12)", borderless: true }}
-                  hitSlop={12}
-                  accessibilityLabel={b.label}
-                >
-                  <Text style={[styles.ballLabel, isSelected && styles.ballLabelSelected]}>
-                    {b.label}
-                  </Text>
-                </Pressable>
-              </Animated.View>
-            );
-          })}
+                <Text style={styles.whiteBtnText}>{b.label}</Text>
+              </Pressable>
+            </Animated.View>
+          ))}
         </View>
 
-        {selectedIndex !== null && (
-          <View style={styles.hintBox} pointerEvents="none">
-            <Text style={styles.hintText}>
-              Kiválasztott időablak: <Text style={{ color: "#45eba5", fontWeight: "700" }}>{BALLS[selectedIndex].label}</Text>
-            </Text>
-            <Text style={styles.hintSub}>Nyomj rá MÉG egyszer a labdára az átlépéshez</Text>
-          </View>
-        )}
-
-        <Text style={styles.footer}>Válassz időablakot a labdákra koppintva! Okosfoci 🚀</Text>
+        {/* Plusz: A tuti gomb külön, fehér stílusban */}
+        <View style={styles.tutiWrap}>
+          <Pressable
+            onPress={() => gotoTutiDaily(6)}
+            style={({ pressed }) => [styles.whiteBtn, pressed ? styles.whiteBtnPressed : null]}
+          >
+            <Text style={styles.whiteBtnText}>A tuti</Text>
+          </Pressable>
+        </View>
       </View>
     </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  bg: { flex: 1, backgroundColor: "#000" },
-  wrapper: { flex: 1, alignItems: "center", paddingTop: Platform.OS === "ios" ? 56 : 48 },
-  title: {
-    position: "absolute",
-    top: Platform.OS === "ios" ? 48 : 20,
-    fontSize: 32,
-    fontWeight: "800",
-    color: "#fff",
-    textShadowColor: "#071",
-    textShadowOffset: { width: 1, height: 2 },
-    textShadowRadius: 12,
+  bg: { flex: 1 },
+  bgImg: { resizeMode: "cover", opacity: 0.45 },
+  overlay: { flex: 1, backgroundColor: "rgba(0,0,0,0.25)", paddingHorizontal: 16, justifyContent: "center" },
+
+  title: { fontSize: 34, fontWeight: "800", color: "#fff", textAlign: "center", textShadowColor: "rgba(0,0,0,0.35)", textShadowOffset: { width: 0, height: 2 }, textShadowRadius: 6 },
+  subtitle: { marginTop: 10, fontSize: 15, color: "rgba(255,255,255,0.9)", textAlign: "center" },
+
+  row: { marginTop: 24, flexDirection: "row", justifyContent: "center", gap: 12, flexWrap: "wrap" },
+  whiteBtn: {
+    minWidth: 110, paddingHorizontal: 12, paddingVertical: 10,
+    borderRadius: 999, backgroundColor: "#fff", borderWidth: 2, borderColor: "#34d399", // zöld karika, mint a képen
+    alignItems: "center", justifyContent: "center",
+    shadowColor: "#000", shadowOpacity: 0.2, shadowRadius: 8, shadowOffset: { width: 0, height: 3 }, elevation: 4,
   },
-  ballsLayer: { position: "absolute", left: 0, right: 0, top: 0, bottom: 0 },
-  ballRoot: { position: "absolute", justifyContent: "center", alignItems: "center" },
-  ball: {
-    flex: 1,
-    width: "100%",
-    height: "100%",
-    borderRadius: 999,
-    borderWidth: 3,
-    justifyContent: "center",
-    alignItems: "center",
-    borderColor: "#45eba5",
-    backgroundColor: "rgba(255,255,255,0.02)",
-    shadowColor: "#45eba5",
-    shadowOffset: { width: 0, height: 6 },
-    shadowRadius: 12,
-    elevation: 6,
-  },
-  ballLabel: { color: "#45eba5", fontWeight: "700", textAlign: "center", fontSize: 16 },
-  ballLabelSelected: { color: "#00f4a0", textShadowColor: "#062", textShadowOffset: { width: 0, height: 1 }, textShadowRadius: 8 },
-  hintBox: { position: "absolute", alignSelf: "center", bottom: 120, backgroundColor: "rgba(0,0,0,0.52)", paddingHorizontal: 14, paddingVertical: 10, borderRadius: 10 },
-  hintText: { color: "#45eba5", fontWeight: "600", textAlign: "center" },
-  hintSub: { color: "#ddd", fontSize: 12, textAlign: "center", marginTop: 6 },
-  footer: { position: "absolute", bottom: 28, alignSelf: "center", color: "#fff", opacity: 0.9, fontStyle: "italic" },
+  whiteBtnPressed: { opacity: 0.9 },
+  whiteBtnText: { fontSize: 16, fontWeight: "800", color: "#111" },
+
+  tutiWrap: { marginTop: 16, alignItems: "center" },
 });

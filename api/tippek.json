@@ -1,0 +1,2282 @@
+[
+  {
+    "date": "2025-08-15T19:00:00+00:00",
+    "home": "Liverpool",
+    "away": "Bournemouth",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-08-16T11:30:00+00:00",
+    "home": "Aston Villa",
+    "away": "Newcastle",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-08-16T14:00:00+00:00",
+    "home": "Tottenham",
+    "away": "Burnley",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-08-16T14:00:00+00:00",
+    "home": "Brighton",
+    "away": "Fulham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-08-16T14:00:00+00:00",
+    "home": "Sunderland",
+    "away": "West Ham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-08-16T16:30:00+00:00",
+    "home": "Wolves",
+    "away": "Manchester City",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-08-17T13:00:00+00:00",
+    "home": "Chelsea",
+    "away": "Crystal Palace",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-08-17T13:00:00+00:00",
+    "home": "Nottingham Forest",
+    "away": "Brentford",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-08-17T15:30:00+00:00",
+    "home": "Manchester United",
+    "away": "Arsenal",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-08-18T19:00:00+00:00",
+    "home": "Leeds",
+    "away": "Everton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-08-22T19:00:00+00:00",
+    "home": "West Ham",
+    "away": "Chelsea",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-08-23T11:30:00+00:00",
+    "home": "Manchester City",
+    "away": "Tottenham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-08-23T14:00:00+00:00",
+    "home": "Bournemouth",
+    "away": "Wolves",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-08-23T14:00:00+00:00",
+    "home": "Burnley",
+    "away": "Sunderland",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-08-23T14:00:00+00:00",
+    "home": "Brentford",
+    "away": "Aston Villa",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-08-23T16:30:00+00:00",
+    "home": "Arsenal",
+    "away": "Leeds",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-08-24T13:00:00+00:00",
+    "home": "Everton",
+    "away": "Brighton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-08-24T13:00:00+00:00",
+    "home": "Crystal Palace",
+    "away": "Nottingham Forest",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-08-24T15:30:00+00:00",
+    "home": "Fulham",
+    "away": "Manchester United",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-08-25T19:00:00+00:00",
+    "home": "Newcastle",
+    "away": "Liverpool",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-08-30T11:30:00+00:00",
+    "home": "Chelsea",
+    "away": "Fulham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-08-30T14:00:00+00:00",
+    "home": "Manchester United",
+    "away": "Burnley",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-08-30T14:00:00+00:00",
+    "home": "Wolves",
+    "away": "Everton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-08-30T14:00:00+00:00",
+    "home": "Tottenham",
+    "away": "Bournemouth",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-08-30T14:00:00+00:00",
+    "home": "Sunderland",
+    "away": "Brentford",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-08-30T16:30:00+00:00",
+    "home": "Leeds",
+    "away": "Newcastle",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-08-31T13:00:00+00:00",
+    "home": "Brighton",
+    "away": "Manchester City",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-08-31T13:00:00+00:00",
+    "home": "Nottingham Forest",
+    "away": "West Ham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-08-31T15:30:00+00:00",
+    "home": "Liverpool",
+    "away": "Arsenal",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-08-31T18:00:00+00:00",
+    "home": "Aston Villa",
+    "away": "Crystal Palace",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-09-13T11:30:00+00:00",
+    "home": "Arsenal",
+    "away": "Nottingham Forest",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-09-13T14:00:00+00:00",
+    "home": "Newcastle",
+    "away": "Wolves",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-09-13T14:00:00+00:00",
+    "home": "Bournemouth",
+    "away": "Brighton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-09-13T14:00:00+00:00",
+    "home": "Fulham",
+    "away": "Leeds",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-09-13T14:00:00+00:00",
+    "home": "Everton",
+    "away": "Aston Villa",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-09-13T14:00:00+00:00",
+    "home": "Crystal Palace",
+    "away": "Sunderland",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-09-13T16:30:00+00:00",
+    "home": "West Ham",
+    "away": "Tottenham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-09-13T19:00:00+00:00",
+    "home": "Brentford",
+    "away": "Chelsea",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-09-14T13:00:00+00:00",
+    "home": "Burnley",
+    "away": "Liverpool",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-09-14T15:30:00+00:00",
+    "home": "Manchester City",
+    "away": "Manchester United",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-09-20T11:30:00+00:00",
+    "home": "Liverpool",
+    "away": "Everton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-09-20T14:00:00+00:00",
+    "home": "Wolves",
+    "away": "Leeds",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-09-20T14:00:00+00:00",
+    "home": "Burnley",
+    "away": "Nottingham Forest",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-09-20T14:00:00+00:00",
+    "home": "West Ham",
+    "away": "Crystal Palace",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-09-20T14:00:00+00:00",
+    "home": "Brighton",
+    "away": "Tottenham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-09-20T16:30:00+00:00",
+    "home": "Manchester United",
+    "away": "Chelsea",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-09-20T19:00:00+00:00",
+    "home": "Fulham",
+    "away": "Brentford",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-09-21T13:00:00+00:00",
+    "home": "Bournemouth",
+    "away": "Newcastle",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-09-21T13:00:00+00:00",
+    "home": "Sunderland",
+    "away": "Aston Villa",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-09-21T15:30:00+00:00",
+    "home": "Arsenal",
+    "away": "Manchester City",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-09-27T11:30:00+00:00",
+    "home": "Brentford",
+    "away": "Manchester United",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-09-27T14:00:00+00:00",
+    "home": "Chelsea",
+    "away": "Brighton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-09-27T14:00:00+00:00",
+    "home": "Manchester City",
+    "away": "Burnley",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-09-27T14:00:00+00:00",
+    "home": "Crystal Palace",
+    "away": "Liverpool",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-09-27T14:00:00+00:00",
+    "home": "Leeds",
+    "away": "Bournemouth",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-09-27T16:30:00+00:00",
+    "home": "Nottingham Forest",
+    "away": "Sunderland",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-09-27T19:00:00+00:00",
+    "home": "Tottenham",
+    "away": "Wolves",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-09-28T13:00:00+00:00",
+    "home": "Aston Villa",
+    "away": "Fulham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-09-28T15:30:00+00:00",
+    "home": "Newcastle",
+    "away": "Arsenal",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-09-29T19:00:00+00:00",
+    "home": "Everton",
+    "away": "West Ham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-10-03T19:00:00+00:00",
+    "home": "Bournemouth",
+    "away": "Fulham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-10-04T11:30:00+00:00",
+    "home": "Leeds",
+    "away": "Tottenham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-10-04T14:00:00+00:00",
+    "home": "Manchester United",
+    "away": "Sunderland",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-10-04T14:00:00+00:00",
+    "home": "Arsenal",
+    "away": "West Ham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-10-04T16:30:00+00:00",
+    "home": "Chelsea",
+    "away": "Liverpool",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-10-05T13:00:00+00:00",
+    "home": "Newcastle",
+    "away": "Nottingham Forest",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-10-05T13:00:00+00:00",
+    "home": "Wolves",
+    "away": "Brighton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-10-05T13:00:00+00:00",
+    "home": "Everton",
+    "away": "Crystal Palace",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-10-05T13:00:00+00:00",
+    "home": "Aston Villa",
+    "away": "Burnley",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-10-05T15:30:00+00:00",
+    "home": "Brentford",
+    "away": "Manchester City",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-10-18T11:30:00+00:00",
+    "home": "Nottingham Forest",
+    "away": "Chelsea",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-10-18T14:00:00+00:00",
+    "home": "Burnley",
+    "away": "Leeds",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-10-18T14:00:00+00:00",
+    "home": "Manchester City",
+    "away": "Everton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-10-18T14:00:00+00:00",
+    "home": "Brighton",
+    "away": "Newcastle",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-10-18T14:00:00+00:00",
+    "home": "Crystal Palace",
+    "away": "Bournemouth",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-10-18T14:00:00+00:00",
+    "home": "Sunderland",
+    "away": "Wolves",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-10-18T16:30:00+00:00",
+    "home": "Fulham",
+    "away": "Arsenal",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-10-19T13:00:00+00:00",
+    "home": "Tottenham",
+    "away": "Aston Villa",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-10-19T15:30:00+00:00",
+    "home": "Liverpool",
+    "away": "Manchester United",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-10-20T19:00:00+00:00",
+    "home": "West Ham",
+    "away": "Brentford",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-10-24T19:00:00+00:00",
+    "home": "Leeds",
+    "away": "West Ham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-10-25T14:00:00+00:00",
+    "home": "Newcastle",
+    "away": "Fulham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-10-25T14:00:00+00:00",
+    "home": "Chelsea",
+    "away": "Sunderland",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-10-25T16:30:00+00:00",
+    "home": "Manchester United",
+    "away": "Brighton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-10-25T19:00:00+00:00",
+    "home": "Brentford",
+    "away": "Liverpool",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-10-26T14:00:00+00:00",
+    "home": "Bournemouth",
+    "away": "Nottingham Forest",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-10-26T14:00:00+00:00",
+    "home": "Wolves",
+    "away": "Burnley",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-10-26T14:00:00+00:00",
+    "home": "Arsenal",
+    "away": "Crystal Palace",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-10-26T14:00:00+00:00",
+    "home": "Aston Villa",
+    "away": "Manchester City",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-10-26T16:30:00+00:00",
+    "home": "Everton",
+    "away": "Tottenham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-01T15:00:00+00:00",
+    "home": "Fulham",
+    "away": "Wolves",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-01T15:00:00+00:00",
+    "home": "Burnley",
+    "away": "Arsenal",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-01T15:00:00+00:00",
+    "home": "Brighton",
+    "away": "Leeds",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-01T15:00:00+00:00",
+    "home": "Crystal Palace",
+    "away": "Brentford",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-01T15:00:00+00:00",
+    "home": "Nottingham Forest",
+    "away": "Manchester United",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-01T17:30:00+00:00",
+    "home": "Tottenham",
+    "away": "Chelsea",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-01T20:00:00+00:00",
+    "home": "Liverpool",
+    "away": "Aston Villa",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-02T14:00:00+00:00",
+    "home": "West Ham",
+    "away": "Newcastle",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-02T16:30:00+00:00",
+    "home": "Manchester City",
+    "away": "Bournemouth",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-03T20:00:00+00:00",
+    "home": "Sunderland",
+    "away": "Everton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-08T12:30:00+00:00",
+    "home": "Tottenham",
+    "away": "Manchester United",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-08T15:00:00+00:00",
+    "home": "Everton",
+    "away": "Fulham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-08T15:00:00+00:00",
+    "home": "West Ham",
+    "away": "Burnley",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-08T17:30:00+00:00",
+    "home": "Sunderland",
+    "away": "Arsenal",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-08T20:00:00+00:00",
+    "home": "Chelsea",
+    "away": "Wolves",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-09T14:00:00+00:00",
+    "home": "Crystal Palace",
+    "away": "Brighton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-09T14:00:00+00:00",
+    "home": "Brentford",
+    "away": "Newcastle",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-09T14:00:00+00:00",
+    "home": "Nottingham Forest",
+    "away": "Leeds",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-09T14:00:00+00:00",
+    "home": "Aston Villa",
+    "away": "Bournemouth",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-09T16:30:00+00:00",
+    "home": "Manchester City",
+    "away": "Liverpool",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-22T12:30:00+00:00",
+    "home": "Burnley",
+    "away": "Chelsea",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-22T15:00:00+00:00",
+    "home": "Bournemouth",
+    "away": "West Ham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-22T15:00:00+00:00",
+    "home": "Fulham",
+    "away": "Sunderland",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-22T15:00:00+00:00",
+    "home": "Wolves",
+    "away": "Crystal Palace",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-22T15:00:00+00:00",
+    "home": "Liverpool",
+    "away": "Nottingham Forest",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-22T15:00:00+00:00",
+    "home": "Brighton",
+    "away": "Brentford",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-22T17:30:00+00:00",
+    "home": "Newcastle",
+    "away": "Manchester City",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-23T14:00:00+00:00",
+    "home": "Leeds",
+    "away": "Aston Villa",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-23T16:30:00+00:00",
+    "home": "Arsenal",
+    "away": "Tottenham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-24T20:00:00+00:00",
+    "home": "Manchester United",
+    "away": "Everton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-29T15:00:00+00:00",
+    "home": "Manchester City",
+    "away": "Leeds",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-29T15:00:00+00:00",
+    "home": "Brentford",
+    "away": "Burnley",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-29T15:00:00+00:00",
+    "home": "Sunderland",
+    "away": "Bournemouth",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-29T17:30:00+00:00",
+    "home": "Everton",
+    "away": "Newcastle",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-29T20:00:00+00:00",
+    "home": "Tottenham",
+    "away": "Fulham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-30T12:00:00+00:00",
+    "home": "Crystal Palace",
+    "away": "Manchester United",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-30T14:05:00+00:00",
+    "home": "West Ham",
+    "away": "Liverpool",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-30T14:05:00+00:00",
+    "home": "Nottingham Forest",
+    "away": "Brighton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-30T14:05:00+00:00",
+    "home": "Aston Villa",
+    "away": "Wolves",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-11-30T16:30:00+00:00",
+    "home": "Chelsea",
+    "away": "Arsenal",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-02T19:30:00+00:00",
+    "home": "Bournemouth",
+    "away": "Everton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-02T19:30:00+00:00",
+    "home": "Fulham",
+    "away": "Manchester City",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-02T20:15:00+00:00",
+    "home": "Newcastle",
+    "away": "Tottenham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-03T19:30:00+00:00",
+    "home": "Wolves",
+    "away": "Nottingham Forest",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-03T19:30:00+00:00",
+    "home": "Arsenal",
+    "away": "Brentford",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-03T19:30:00+00:00",
+    "home": "Burnley",
+    "away": "Crystal Palace",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-03T19:30:00+00:00",
+    "home": "Brighton",
+    "away": "Aston Villa",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-03T20:15:00+00:00",
+    "home": "Liverpool",
+    "away": "Sunderland",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-03T20:15:00+00:00",
+    "home": "Leeds",
+    "away": "Chelsea",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-04T20:00:00+00:00",
+    "home": "Manchester United",
+    "away": "West Ham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-06T12:30:00+00:00",
+    "home": "Aston Villa",
+    "away": "Arsenal",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-06T15:00:00+00:00",
+    "home": "Newcastle",
+    "away": "Burnley",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-06T15:00:00+00:00",
+    "home": "Bournemouth",
+    "away": "Chelsea",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-06T15:00:00+00:00",
+    "home": "Everton",
+    "away": "Nottingham Forest",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-06T15:00:00+00:00",
+    "home": "Tottenham",
+    "away": "Brentford",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-06T15:00:00+00:00",
+    "home": "Manchester City",
+    "away": "Sunderland",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-06T17:30:00+00:00",
+    "home": "Leeds",
+    "away": "Liverpool",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-07T14:00:00+00:00",
+    "home": "Brighton",
+    "away": "West Ham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-07T16:30:00+00:00",
+    "home": "Fulham",
+    "away": "Crystal Palace",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-08T20:00:00+00:00",
+    "home": "Wolves",
+    "away": "Manchester United",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-13T15:00:00+00:00",
+    "home": "Liverpool",
+    "away": "Brighton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-13T15:00:00+00:00",
+    "home": "Chelsea",
+    "away": "Everton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-13T17:30:00+00:00",
+    "home": "Burnley",
+    "away": "Fulham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-13T20:00:00+00:00",
+    "home": "Arsenal",
+    "away": "Wolves",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-14T14:00:00+00:00",
+    "home": "West Ham",
+    "away": "Aston Villa",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-14T14:00:00+00:00",
+    "home": "Crystal Palace",
+    "away": "Manchester City",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-14T14:00:00+00:00",
+    "home": "Nottingham Forest",
+    "away": "Tottenham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-14T14:00:00+00:00",
+    "home": "Sunderland",
+    "away": "Newcastle",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-14T16:30:00+00:00",
+    "home": "Brentford",
+    "away": "Leeds",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-15T20:00:00+00:00",
+    "home": "Manchester United",
+    "away": "Bournemouth",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-20T12:30:00+00:00",
+    "home": "Newcastle",
+    "away": "Chelsea",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-20T15:00:00+00:00",
+    "home": "Bournemouth",
+    "away": "Burnley",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-20T15:00:00+00:00",
+    "home": "Wolves",
+    "away": "Brentford",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-20T15:00:00+00:00",
+    "home": "Manchester City",
+    "away": "West Ham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-20T15:00:00+00:00",
+    "home": "Brighton",
+    "away": "Sunderland",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-20T17:30:00+00:00",
+    "home": "Tottenham",
+    "away": "Liverpool",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-20T20:00:00+00:00",
+    "home": "Everton",
+    "away": "Arsenal",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-20T20:00:00+00:00",
+    "home": "Leeds",
+    "away": "Crystal Palace",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-21T16:30:00+00:00",
+    "home": "Aston Villa",
+    "away": "Manchester United",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-22T20:00:00+00:00",
+    "home": "Fulham",
+    "away": "Nottingham Forest",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-26T20:00:00+00:00",
+    "home": "Manchester United",
+    "away": "Newcastle",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-27T12:30:00+00:00",
+    "home": "Nottingham Forest",
+    "away": "Manchester City",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-27T15:00:00+00:00",
+    "home": "Liverpool",
+    "away": "Wolves",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-27T15:00:00+00:00",
+    "home": "Arsenal",
+    "away": "Brighton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-27T15:00:00+00:00",
+    "home": "Burnley",
+    "away": "Everton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-27T15:00:00+00:00",
+    "home": "West Ham",
+    "away": "Fulham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-27T15:00:00+00:00",
+    "home": "Brentford",
+    "away": "Bournemouth",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-27T17:30:00+00:00",
+    "home": "Chelsea",
+    "away": "Aston Villa",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-28T14:00:00+00:00",
+    "home": "Sunderland",
+    "away": "Leeds",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-28T16:30:00+00:00",
+    "home": "Crystal Palace",
+    "away": "Tottenham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-30T19:30:00+00:00",
+    "home": "Burnley",
+    "away": "Newcastle",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-30T19:30:00+00:00",
+    "home": "West Ham",
+    "away": "Brighton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-30T19:30:00+00:00",
+    "home": "Chelsea",
+    "away": "Bournemouth",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-30T19:30:00+00:00",
+    "home": "Nottingham Forest",
+    "away": "Everton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-30T20:15:00+00:00",
+    "home": "Manchester United",
+    "away": "Wolves",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2025-12-30T20:15:00+00:00",
+    "home": "Arsenal",
+    "away": "Aston Villa",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-01T17:30:00+00:00",
+    "home": "Liverpool",
+    "away": "Leeds",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-01T17:30:00+00:00",
+    "home": "Crystal Palace",
+    "away": "Fulham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-01T20:00:00+00:00",
+    "home": "Brentford",
+    "away": "Tottenham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-01T20:00:00+00:00",
+    "home": "Sunderland",
+    "away": "Manchester City",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-03T12:30:00+00:00",
+    "home": "Aston Villa",
+    "away": "Nottingham Forest",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-03T15:00:00+00:00",
+    "home": "Wolves",
+    "away": "West Ham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-03T15:00:00+00:00",
+    "home": "Brighton",
+    "away": "Burnley",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-03T17:30:00+00:00",
+    "home": "Bournemouth",
+    "away": "Arsenal",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-04T12:30:00+00:00",
+    "home": "Leeds",
+    "away": "Manchester United",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-04T15:00:00+00:00",
+    "home": "Newcastle",
+    "away": "Crystal Palace",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-04T15:00:00+00:00",
+    "home": "Fulham",
+    "away": "Liverpool",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-04T15:00:00+00:00",
+    "home": "Everton",
+    "away": "Brentford",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-04T15:00:00+00:00",
+    "home": "Tottenham",
+    "away": "Sunderland",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-04T17:30:00+00:00",
+    "home": "Manchester City",
+    "away": "Chelsea",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-06T20:00:00+00:00",
+    "home": "West Ham",
+    "away": "Nottingham Forest",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-07T19:30:00+00:00",
+    "home": "Bournemouth",
+    "away": "Tottenham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-07T19:30:00+00:00",
+    "home": "Fulham",
+    "away": "Chelsea",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-07T19:30:00+00:00",
+    "home": "Everton",
+    "away": "Wolves",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-07T19:30:00+00:00",
+    "home": "Manchester City",
+    "away": "Brighton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-07T19:30:00+00:00",
+    "home": "Crystal Palace",
+    "away": "Aston Villa",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-07T19:30:00+00:00",
+    "home": "Brentford",
+    "away": "Sunderland",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-07T20:15:00+00:00",
+    "home": "Newcastle",
+    "away": "Leeds",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-07T20:15:00+00:00",
+    "home": "Burnley",
+    "away": "Manchester United",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-08T20:00:00+00:00",
+    "home": "Arsenal",
+    "away": "Liverpool",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-17T12:30:00+00:00",
+    "home": "Manchester United",
+    "away": "Manchester City",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-17T15:00:00+00:00",
+    "home": "Liverpool",
+    "away": "Burnley",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-17T15:00:00+00:00",
+    "home": "Tottenham",
+    "away": "West Ham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-17T15:00:00+00:00",
+    "home": "Chelsea",
+    "away": "Brentford",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-17T15:00:00+00:00",
+    "home": "Leeds",
+    "away": "Fulham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-17T15:00:00+00:00",
+    "home": "Sunderland",
+    "away": "Crystal Palace",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-17T17:30:00+00:00",
+    "home": "Nottingham Forest",
+    "away": "Arsenal",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-18T14:00:00+00:00",
+    "home": "Wolves",
+    "away": "Newcastle",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-18T16:30:00+00:00",
+    "home": "Aston Villa",
+    "away": "Everton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-19T20:00:00+00:00",
+    "home": "Brighton",
+    "away": "Bournemouth",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-24T12:30:00+00:00",
+    "home": "West Ham",
+    "away": "Sunderland",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-24T15:00:00+00:00",
+    "home": "Fulham",
+    "away": "Brighton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-24T15:00:00+00:00",
+    "home": "Burnley",
+    "away": "Tottenham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-24T15:00:00+00:00",
+    "home": "Manchester City",
+    "away": "Wolves",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-24T17:30:00+00:00",
+    "home": "Bournemouth",
+    "away": "Liverpool",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-25T14:00:00+00:00",
+    "home": "Newcastle",
+    "away": "Aston Villa",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-25T14:00:00+00:00",
+    "home": "Crystal Palace",
+    "away": "Chelsea",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-25T14:00:00+00:00",
+    "home": "Brentford",
+    "away": "Nottingham Forest",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-25T16:30:00+00:00",
+    "home": "Arsenal",
+    "away": "Manchester United",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-26T20:00:00+00:00",
+    "home": "Everton",
+    "away": "Leeds",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-31T15:00:00+00:00",
+    "home": "Wolves",
+    "away": "Bournemouth",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-31T15:00:00+00:00",
+    "home": "Brighton",
+    "away": "Everton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-31T15:00:00+00:00",
+    "home": "Leeds",
+    "away": "Arsenal",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-31T17:30:00+00:00",
+    "home": "Chelsea",
+    "away": "West Ham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-01-31T20:00:00+00:00",
+    "home": "Liverpool",
+    "away": "Newcastle",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-01T14:00:00+00:00",
+    "home": "Manchester United",
+    "away": "Fulham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-01T14:00:00+00:00",
+    "home": "Nottingham Forest",
+    "away": "Crystal Palace",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-01T14:00:00+00:00",
+    "home": "Aston Villa",
+    "away": "Brentford",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-01T16:30:00+00:00",
+    "home": "Tottenham",
+    "away": "Manchester City",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-02T20:00:00+00:00",
+    "home": "Sunderland",
+    "away": "Burnley",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-07T15:00:00+00:00",
+    "home": "Manchester United",
+    "away": "Tottenham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-07T15:00:00+00:00",
+    "home": "Newcastle",
+    "away": "Brentford",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-07T15:00:00+00:00",
+    "home": "Bournemouth",
+    "away": "Aston Villa",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-07T15:00:00+00:00",
+    "home": "Fulham",
+    "away": "Everton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-07T15:00:00+00:00",
+    "home": "Wolves",
+    "away": "Chelsea",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-07T15:00:00+00:00",
+    "home": "Liverpool",
+    "away": "Manchester City",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-07T15:00:00+00:00",
+    "home": "Arsenal",
+    "away": "Sunderland",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-07T15:00:00+00:00",
+    "home": "Burnley",
+    "away": "West Ham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-07T15:00:00+00:00",
+    "home": "Brighton",
+    "away": "Crystal Palace",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-07T15:00:00+00:00",
+    "home": "Leeds",
+    "away": "Nottingham Forest",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-11T20:00:00+00:00",
+    "home": "Everton",
+    "away": "Bournemouth",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-11T20:00:00+00:00",
+    "home": "Tottenham",
+    "away": "Newcastle",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-11T20:00:00+00:00",
+    "home": "West Ham",
+    "away": "Manchester United",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-11T20:00:00+00:00",
+    "home": "Chelsea",
+    "away": "Leeds",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-11T20:00:00+00:00",
+    "home": "Manchester City",
+    "away": "Fulham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-11T20:00:00+00:00",
+    "home": "Crystal Palace",
+    "away": "Burnley",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-11T20:00:00+00:00",
+    "home": "Brentford",
+    "away": "Arsenal",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-11T20:00:00+00:00",
+    "home": "Nottingham Forest",
+    "away": "Wolves",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-11T20:00:00+00:00",
+    "home": "Aston Villa",
+    "away": "Brighton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-11T20:00:00+00:00",
+    "home": "Sunderland",
+    "away": "Liverpool",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-21T15:00:00+00:00",
+    "home": "Everton",
+    "away": "Manchester United",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-21T15:00:00+00:00",
+    "home": "Tottenham",
+    "away": "Arsenal",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-21T15:00:00+00:00",
+    "home": "West Ham",
+    "away": "Bournemouth",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-21T15:00:00+00:00",
+    "home": "Chelsea",
+    "away": "Burnley",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-21T15:00:00+00:00",
+    "home": "Manchester City",
+    "away": "Newcastle",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-21T15:00:00+00:00",
+    "home": "Crystal Palace",
+    "away": "Wolves",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-21T15:00:00+00:00",
+    "home": "Brentford",
+    "away": "Brighton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-21T15:00:00+00:00",
+    "home": "Nottingham Forest",
+    "away": "Liverpool",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-21T15:00:00+00:00",
+    "home": "Aston Villa",
+    "away": "Leeds",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-21T15:00:00+00:00",
+    "home": "Sunderland",
+    "away": "Fulham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-28T15:00:00+00:00",
+    "home": "Manchester United",
+    "away": "Crystal Palace",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-28T15:00:00+00:00",
+    "home": "Newcastle",
+    "away": "Everton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-28T15:00:00+00:00",
+    "home": "Bournemouth",
+    "away": "Sunderland",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-28T15:00:00+00:00",
+    "home": "Fulham",
+    "away": "Tottenham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-28T15:00:00+00:00",
+    "home": "Wolves",
+    "away": "Aston Villa",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-28T15:00:00+00:00",
+    "home": "Liverpool",
+    "away": "West Ham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-28T15:00:00+00:00",
+    "home": "Arsenal",
+    "away": "Chelsea",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-28T15:00:00+00:00",
+    "home": "Burnley",
+    "away": "Brentford",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-28T15:00:00+00:00",
+    "home": "Brighton",
+    "away": "Nottingham Forest",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-02-28T15:00:00+00:00",
+    "home": "Leeds",
+    "away": "Manchester City",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-03-04T20:00:00+00:00",
+    "home": "Newcastle",
+    "away": "Manchester United",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-03-04T20:00:00+00:00",
+    "home": "Bournemouth",
+    "away": "Brentford",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-03-04T20:00:00+00:00",
+    "home": "Fulham",
+    "away": "West Ham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-03-04T20:00:00+00:00",
+    "home": "Wolves",
+    "away": "Liverpool",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-03-04T20:00:00+00:00",
+    "home": "Everton",
+    "away": "Burnley",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-03-04T20:00:00+00:00",
+    "home": "Tottenham",
+    "away": "Crystal Palace",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-03-04T20:00:00+00:00",
+    "home": "Manchester City",
+    "away": "Nottingham Forest",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-03-04T20:00:00+00:00",
+    "home": "Brighton",
+    "away": "Arsenal",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-03-04T20:00:00+00:00",
+    "home": "Leeds",
+    "away": "Sunderland",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-03-04T20:00:00+00:00",
+    "home": "Aston Villa",
+    "away": "Chelsea",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-03-14T15:00:00+00:00",
+    "home": "Manchester United",
+    "away": "Aston Villa",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-03-14T15:00:00+00:00",
+    "home": "Liverpool",
+    "away": "Tottenham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-03-14T15:00:00+00:00",
+    "home": "Arsenal",
+    "away": "Everton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-03-14T15:00:00+00:00",
+    "home": "Burnley",
+    "away": "Bournemouth",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-03-14T15:00:00+00:00",
+    "home": "West Ham",
+    "away": "Manchester City",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-03-14T15:00:00+00:00",
+    "home": "Chelsea",
+    "away": "Newcastle",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-03-14T15:00:00+00:00",
+    "home": "Crystal Palace",
+    "away": "Leeds",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-03-14T15:00:00+00:00",
+    "home": "Brentford",
+    "away": "Wolves",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-03-14T15:00:00+00:00",
+    "home": "Nottingham Forest",
+    "away": "Fulham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-03-14T15:00:00+00:00",
+    "home": "Sunderland",
+    "away": "Brighton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-03-21T15:00:00+00:00",
+    "home": "Newcastle",
+    "away": "Sunderland",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-03-21T15:00:00+00:00",
+    "home": "Bournemouth",
+    "away": "Manchester United",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-03-21T15:00:00+00:00",
+    "home": "Fulham",
+    "away": "Burnley",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-03-21T15:00:00+00:00",
+    "home": "Wolves",
+    "away": "Arsenal",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-03-21T15:00:00+00:00",
+    "home": "Everton",
+    "away": "Chelsea",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-03-21T15:00:00+00:00",
+    "home": "Tottenham",
+    "away": "Nottingham Forest",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-03-21T15:00:00+00:00",
+    "home": "Manchester City",
+    "away": "Crystal Palace",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-03-21T15:00:00+00:00",
+    "home": "Brighton",
+    "away": "Liverpool",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-03-21T15:00:00+00:00",
+    "home": "Leeds",
+    "away": "Brentford",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-03-21T15:00:00+00:00",
+    "home": "Aston Villa",
+    "away": "West Ham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-04-11T14:00:00+00:00",
+    "home": "Manchester United",
+    "away": "Leeds",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-04-11T14:00:00+00:00",
+    "home": "Liverpool",
+    "away": "Fulham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-04-11T14:00:00+00:00",
+    "home": "Arsenal",
+    "away": "Bournemouth",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-04-11T14:00:00+00:00",
+    "home": "Burnley",
+    "away": "Brighton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-04-11T14:00:00+00:00",
+    "home": "West Ham",
+    "away": "Wolves",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-04-11T14:00:00+00:00",
+    "home": "Chelsea",
+    "away": "Manchester City",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-04-11T14:00:00+00:00",
+    "home": "Crystal Palace",
+    "away": "Newcastle",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-04-11T14:00:00+00:00",
+    "home": "Brentford",
+    "away": "Everton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-04-11T14:00:00+00:00",
+    "home": "Nottingham Forest",
+    "away": "Aston Villa",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-04-11T14:00:00+00:00",
+    "home": "Sunderland",
+    "away": "Tottenham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-04-18T14:00:00+00:00",
+    "home": "Newcastle",
+    "away": "Bournemouth",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-04-18T14:00:00+00:00",
+    "home": "Everton",
+    "away": "Liverpool",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-04-18T14:00:00+00:00",
+    "home": "Tottenham",
+    "away": "Brighton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-04-18T14:00:00+00:00",
+    "home": "Chelsea",
+    "away": "Manchester United",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-04-18T14:00:00+00:00",
+    "home": "Manchester City",
+    "away": "Arsenal",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-04-18T14:00:00+00:00",
+    "home": "Crystal Palace",
+    "away": "West Ham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-04-18T14:00:00+00:00",
+    "home": "Brentford",
+    "away": "Fulham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-04-18T14:00:00+00:00",
+    "home": "Leeds",
+    "away": "Wolves",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-04-18T14:00:00+00:00",
+    "home": "Nottingham Forest",
+    "away": "Burnley",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-04-18T14:00:00+00:00",
+    "home": "Aston Villa",
+    "away": "Sunderland",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-04-25T14:00:00+00:00",
+    "home": "Manchester United",
+    "away": "Brentford",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-04-25T14:00:00+00:00",
+    "home": "Bournemouth",
+    "away": "Leeds",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-04-25T14:00:00+00:00",
+    "home": "Fulham",
+    "away": "Aston Villa",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-04-25T14:00:00+00:00",
+    "home": "Wolves",
+    "away": "Tottenham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-04-25T14:00:00+00:00",
+    "home": "Liverpool",
+    "away": "Crystal Palace",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-04-25T14:00:00+00:00",
+    "home": "Arsenal",
+    "away": "Newcastle",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-04-25T14:00:00+00:00",
+    "home": "Burnley",
+    "away": "Manchester City",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-04-25T14:00:00+00:00",
+    "home": "West Ham",
+    "away": "Everton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-04-25T14:00:00+00:00",
+    "home": "Brighton",
+    "away": "Chelsea",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-04-25T14:00:00+00:00",
+    "home": "Sunderland",
+    "away": "Nottingham Forest",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-02T14:00:00+00:00",
+    "home": "Manchester United",
+    "away": "Liverpool",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-02T14:00:00+00:00",
+    "home": "Newcastle",
+    "away": "Brighton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-02T14:00:00+00:00",
+    "home": "Bournemouth",
+    "away": "Crystal Palace",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-02T14:00:00+00:00",
+    "home": "Wolves",
+    "away": "Sunderland",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-02T14:00:00+00:00",
+    "home": "Arsenal",
+    "away": "Fulham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-02T14:00:00+00:00",
+    "home": "Everton",
+    "away": "Manchester City",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-02T14:00:00+00:00",
+    "home": "Chelsea",
+    "away": "Nottingham Forest",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-02T14:00:00+00:00",
+    "home": "Brentford",
+    "away": "West Ham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-02T14:00:00+00:00",
+    "home": "Leeds",
+    "away": "Burnley",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-02T14:00:00+00:00",
+    "home": "Aston Villa",
+    "away": "Tottenham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-09T14:00:00+00:00",
+    "home": "Fulham",
+    "away": "Bournemouth",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-09T14:00:00+00:00",
+    "home": "Liverpool",
+    "away": "Chelsea",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-09T14:00:00+00:00",
+    "home": "Burnley",
+    "away": "Aston Villa",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-09T14:00:00+00:00",
+    "home": "Tottenham",
+    "away": "Leeds",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-09T14:00:00+00:00",
+    "home": "West Ham",
+    "away": "Arsenal",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-09T14:00:00+00:00",
+    "home": "Manchester City",
+    "away": "Brentford",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-09T14:00:00+00:00",
+    "home": "Brighton",
+    "away": "Wolves",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-09T14:00:00+00:00",
+    "home": "Crystal Palace",
+    "away": "Everton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-09T14:00:00+00:00",
+    "home": "Nottingham Forest",
+    "away": "Newcastle",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-09T14:00:00+00:00",
+    "home": "Sunderland",
+    "away": "Manchester United",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-17T14:00:00+00:00",
+    "home": "Manchester United",
+    "away": "Nottingham Forest",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-17T14:00:00+00:00",
+    "home": "Newcastle",
+    "away": "West Ham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-17T14:00:00+00:00",
+    "home": "Bournemouth",
+    "away": "Manchester City",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-17T14:00:00+00:00",
+    "home": "Wolves",
+    "away": "Fulham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-17T14:00:00+00:00",
+    "home": "Arsenal",
+    "away": "Burnley",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-17T14:00:00+00:00",
+    "home": "Everton",
+    "away": "Sunderland",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-17T14:00:00+00:00",
+    "home": "Chelsea",
+    "away": "Tottenham",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-17T14:00:00+00:00",
+    "home": "Brentford",
+    "away": "Crystal Palace",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-17T14:00:00+00:00",
+    "home": "Leeds",
+    "away": "Brighton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-17T14:00:00+00:00",
+    "home": "Aston Villa",
+    "away": "Liverpool",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-24T15:00:00+00:00",
+    "home": "Fulham",
+    "away": "Newcastle",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-24T15:00:00+00:00",
+    "home": "Liverpool",
+    "away": "Brentford",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-24T15:00:00+00:00",
+    "home": "Burnley",
+    "away": "Wolves",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-24T15:00:00+00:00",
+    "home": "Tottenham",
+    "away": "Everton",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-24T15:00:00+00:00",
+    "home": "West Ham",
+    "away": "Leeds",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-24T15:00:00+00:00",
+    "home": "Manchester City",
+    "away": "Aston Villa",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-24T15:00:00+00:00",
+    "home": "Brighton",
+    "away": "Manchester United",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-24T15:00:00+00:00",
+    "home": "Crystal Palace",
+    "away": "Arsenal",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-24T15:00:00+00:00",
+    "home": "Nottingham Forest",
+    "away": "Bournemouth",
+    "tipp": "Nincs elérhető odds"
+  },
+  {
+    "date": "2026-05-24T15:00:00+00:00",
+    "home": "Sunderland",
+    "away": "Chelsea",
+    "tipp": "Nincs elérhető odds"
+  }
+]

@@ -2,7 +2,7 @@
   "expo": {
     "name": "Okosfoci",
     "slug": "Okosfoci",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "okosfoci",
@@ -41,7 +41,8 @@
         }
       ],
       "expo-asset",
-      "expo-sqlite"
+      "expo-sqlite",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true,
