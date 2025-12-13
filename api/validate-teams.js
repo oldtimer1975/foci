@@ -12,8 +12,8 @@ const axios = require('axios');
 
 // Load configuration
 function loadConfig() {
-  const configPath = path.join(__dirname, '..', 'config.json');
-  const exampleConfigPath = path.join(__dirname, '..', 'config.example.json');
+  const configPath = path.join(__dirname, 'config.json');
+  const exampleConfigPath = path.join(__dirname, 'config.example.json');
   
   if (fs.existsSync(configPath)) {
     return JSON.parse(fs.readFileSync(configPath, 'utf-8'));

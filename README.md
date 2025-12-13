@@ -272,7 +272,7 @@ npm run validate-teams
 Or with a specific date:
 
 ```bash
-node ../scripts/validate-teams.js --date 2024-12-15
+node validate-teams.js --date 2024-12-15
 ```
 
 This tool will:
@@ -344,6 +344,7 @@ foci/
 ├── api/
 │   ├── okosfoci-algoritmus.js    # Main algorithm implementation
 │   ├── server-new.js              # Express API server
+│   ├── validate-teams.js          # Team validation utility
 │   ├── config.json                # Configuration (create from .example)
 │   ├── .env                       # Environment variables (create from .example)
 │   └── package.json               # Node.js dependencies
@@ -351,7 +352,7 @@ foci/
 │   ├── teams.json                 # Team database (JSON format)
 │   └── teams.txt                  # Team database (text format)
 ├── scripts/
-│   └── validate-teams.js          # Team validation utility
+│   └── (other utility scripts)
 └── README.md                      # This file
 ```
 

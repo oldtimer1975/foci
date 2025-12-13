@@ -8,7 +8,7 @@
     "start": "node server-new.js",
     "start-old": "node server.js",
     "generate-tips": "node okosfoci-algoritmus.js",
-    "validate-teams": "node ../scripts/validate-teams.js"
+    "validate-teams": "node validate-teams.js"
   },
   "keywords": [],
   "author": "",
