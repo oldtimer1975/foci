@@ -8,6 +8,7 @@ const axios = require('axios');
 // Configuration
 const API_KEY = process.env.FOOTBALL_API_KEY || '';
 const API_BASE = 'https://v3.football.api-sports.io';
+const API_RATE_LIMIT_MS = parseInt(process.env.API_RATE_LIMIT_MS || '300', 10);
 
 // Major leagues configuration
 const LEAGUES = [
@@ -252,8 +253,8 @@ async function generateTips(date, timeWindow, limit) {
         betType: tipData.betType
       });
 
-      // Rate limiting - wait 300ms between API calls
-      await new Promise(resolve => setTimeout(resolve, 300));
+      // Rate limiting - wait between API calls to avoid quota issues
+      await new Promise(resolve => setTimeout(resolve, API_RATE_LIMIT_MS));
     }
   }
 

@@ -92,7 +92,7 @@ echo ""
 echo "5. Testing CORS"
 echo "-------------------------------------------"
 echo -n "CORS headers present... "
-cors_header=$(curl -s -I "$BASE_URL/windows" | grep -i "access-control-allow-origin" | grep "*")
+cors_header=$(curl -s -I "$BASE_URL/windows" | grep -i "access-control-allow-origin" | grep '\*')
 if [ -n "$cors_header" ]; then
     echo -e "${GREEN}PASSED${NC}"
     ((PASSED++))
