@@ -32,6 +32,11 @@ yarn-error.*
 
 # local env files
 .env*.local
+.env
+
+# generated tip files
+api/tippek_OKOSFOCI.json
+api/napi-tippek.json
 
 # typescript
 *.tsbuildinfo
