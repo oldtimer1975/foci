@@ -1,0 +1,15 @@
+# Team Database (Text Format)
+# Format: TeamName|Country|League|Founded|Venue|Capacity
+
+Arsenal|England|Premier League|1886|Emirates Stadium|60260
+Chelsea|England|Premier League|1905|Stamford Bridge|40834
+Liverpool|England|Premier League|1892|Anfield|53394
+Manchester City|England|Premier League|1880|Etihad Stadium|53400
+Manchester United|England|Premier League|1878|Old Trafford|74879
+Barcelona|Spain|La Liga|1899|Camp Nou|99354
+Real Madrid|Spain|La Liga|1902|Santiago Bernabéu|81044
+Bayern Munich|Germany|Bundesliga|1900|Allianz Arena|75024
+Borussia Dortmund|Germany|Bundesliga|1909|Signal Iduna Park|81365
+Juventus|Italy|Serie A|1897|Allianz Stadium|41507
+AC Milan|Italy|Serie A|1899|San Siro|75923
+Inter Milan|Italy|Serie A|1908|San Siro|75923

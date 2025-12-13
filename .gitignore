@@ -32,6 +32,16 @@ yarn-error.*
 
 # local env files
 .env*.local
+.env
+api/.env
+
+# API configuration (keep .example files)
+api/config.json
+
+# Generated tips files
+api/tippek_*.json
+api/napi-tippek.json
+tippek_*.json
 
 # typescript
 *.tsbuildinfo
