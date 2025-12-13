@@ -5,7 +5,10 @@
   "main": "footballApi.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server-new.js",
+    "start-old": "node server.js",
+    "generate-tips": "node okosfoci-algoritmus.js",
+    "validate-teams": "node validate-teams.js"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +17,7 @@
   "dependencies": {
     "axios": "^1.13.2",
     "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
     "express": "^5.2.1",
     "fast-glob": "^3.3.3"
   }

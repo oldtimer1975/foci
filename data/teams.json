@@ -1,0 +1,100 @@
+{
+  "teams": [
+    {
+      "name": "Arsenal",
+      "country": "England",
+      "league": "Premier League",
+      "founded": 1886,
+      "venue": "Emirates Stadium",
+      "capacity": 60260
+    },
+    {
+      "name": "Chelsea",
+      "country": "England",
+      "league": "Premier League",
+      "founded": 1905,
+      "venue": "Stamford Bridge",
+      "capacity": 40834
+    },
+    {
+      "name": "Liverpool",
+      "country": "England",
+      "league": "Premier League",
+      "founded": 1892,
+      "venue": "Anfield",
+      "capacity": 53394
+    },
+    {
+      "name": "Manchester City",
+      "country": "England",
+      "league": "Premier League",
+      "founded": 1880,
+      "venue": "Etihad Stadium",
+      "capacity": 53400
+    },
+    {
+      "name": "Manchester United",
+      "country": "England",
+      "league": "Premier League",
+      "founded": 1878,
+      "venue": "Old Trafford",
+      "capacity": 74879
+    },
+    {
+      "name": "Barcelona",
+      "country": "Spain",
+      "league": "La Liga",
+      "founded": 1899,
+      "venue": "Camp Nou",
+      "capacity": 99354
+    },
+    {
+      "name": "Real Madrid",
+      "country": "Spain",
+      "league": "La Liga",
+      "founded": 1902,
+      "venue": "Santiago Bernabéu",
+      "capacity": 81044
+    },
+    {
+      "name": "Bayern Munich",
+      "country": "Germany",
+      "league": "Bundesliga",
+      "founded": 1900,
+      "venue": "Allianz Arena",
+      "capacity": 75024
+    },
+    {
+      "name": "Borussia Dortmund",
+      "country": "Germany",
+      "league": "Bundesliga",
+      "founded": 1909,
+      "venue": "Signal Iduna Park",
+      "capacity": 81365
+    },
+    {
+      "name": "Juventus",
+      "country": "Italy",
+      "league": "Serie A",
+      "founded": 1897,
+      "venue": "Allianz Stadium",
+      "capacity": 41507
+    },
+    {
+      "name": "AC Milan",
+      "country": "Italy",
+      "league": "Serie A",
+      "founded": 1899,
+      "venue": "San Siro",
+      "capacity": 75923
+    },
+    {
+      "name": "Inter Milan",
+      "country": "Italy",
+      "league": "Serie A",
+      "founded": 1908,
+      "venue": "San Siro",
+      "capacity": 75923
+    }
+  ]
+}

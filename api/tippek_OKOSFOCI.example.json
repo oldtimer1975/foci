@@ -1,0 +1,86 @@
+[
+  {
+    "fixtureId": 1035198,
+    "league": "Premier League",
+    "date": "2024-12-14T20:00:00+00:00",
+    "timeWindow": "16-24",
+    "home": "Liverpool",
+    "away": "Manchester City",
+    "venue": "Anfield",
+    "tip": "Home",
+    "odds": 2.10,
+    "betType": "Match Winner",
+    "home_db": {
+      "name": "Liverpool",
+      "country": "England",
+      "league": "Premier League",
+      "founded": 1892,
+      "venue": "Anfield",
+      "capacity": 53394
+    },
+    "away_db": {
+      "name": "Manchester City",
+      "country": "England",
+      "league": "Premier League",
+      "founded": 1880,
+      "venue": "Etihad Stadium",
+      "capacity": 53400
+    }
+  },
+  {
+    "fixtureId": 1035199,
+    "league": "La Liga",
+    "date": "2024-12-14T18:30:00+00:00",
+    "timeWindow": "16-24",
+    "home": "Barcelona",
+    "away": "Real Madrid",
+    "venue": "Camp Nou",
+    "tip": "Over 2.5",
+    "odds": 1.75,
+    "betType": "Over/Under 2.5",
+    "home_db": {
+      "name": "Barcelona",
+      "country": "Spain",
+      "league": "La Liga",
+      "founded": 1899,
+      "venue": "Camp Nou",
+      "capacity": 99354
+    },
+    "away_db": {
+      "name": "Real Madrid",
+      "country": "Spain",
+      "league": "La Liga",
+      "founded": 1902,
+      "venue": "Santiago Bernabéu",
+      "capacity": 81044
+    }
+  },
+  {
+    "fixtureId": 1035200,
+    "league": "Bundesliga",
+    "date": "2024-12-14T14:30:00+00:00",
+    "timeWindow": "8-16",
+    "home": "Bayern Munich",
+    "away": "Borussia Dortmund",
+    "venue": "Allianz Arena",
+    "tip": "Yes",
+    "odds": 1.65,
+    "betType": "Both Teams to Score",
+    "home_db": {
+      "name": "Bayern Munich",
+      "country": "Germany",
+      "league": "Bundesliga",
+      "founded": 1900,
+      "venue": "Allianz Arena",
+      "capacity": 75024
+    },
+    "away_db": {
+      "name": "Borussia Dortmund",
+      "country": "Germany",
+      "league": "Bundesliga",
+      "founded": 1909,
+      "venue": "Signal Iduna Park",
+      "capacity": 81365
+    }
+  }
+]
