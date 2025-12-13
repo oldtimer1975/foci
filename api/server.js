@@ -1,3 +1,6 @@
+// Load environment variables from .env file if it exists
+require('dotenv').config();
+
 const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
@@ -5,7 +8,7 @@ const path = require('path');
 const fg = require('fast-glob');
 const algoritmus = require('./okosfoci-algoritmus');
 
-const DATA_ROOT = process.env.DATA_ROOT || '/home/kali/Downloads/meccsek';
+const DATA_ROOT = process.env.DATA_ROOT || './data';
 const app = express();
 
 // CORS configuration - enable for all origins

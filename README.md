@@ -41,14 +41,22 @@ The server will start on `http://0.0.0.0:8081` by default.
 
 ### Environment Variables
 
+- `FOOTBALL_API_KEY` - **Required** API key for football-api.sports.io. Get yours at https://www.api-football.com/
 - `PORT` - Server port (default: 8081)
-- `FOOTBALL_API_KEY` - API key for football-api.sports.io (default: uses embedded key)
-- `DATA_ROOT` - Path to local football data files (default: /home/kali/Downloads/meccsek)
+- `DATA_ROOT` - Path to local football data files (default: ./data)
+
+Create a `.env` file in the `api` directory (see `.env.example` for template):
+```bash
+cd api
+cp .env.example .env
+# Edit .env and add your API key
+```
 
 Example:
 ```bash
 export FOOTBALL_API_KEY=your_api_key_here
 export PORT=3000
+export DATA_ROOT=/path/to/football/data
 npm start
 ```
 
@@ -265,7 +273,10 @@ All endpoints return JSON responses. No HTML error pages are returned under any 
 
 #### "API not configured" error
 - **Cause**: Missing or invalid API key
-- **Solution**: Set `FOOTBALL_API_KEY` environment variable with a valid API key from https://www.api-football.com/
+- **Solution**: 
+  - Get an API key from https://www.api-football.com/
+  - Set `FOOTBALL_API_KEY` environment variable with your API key
+  - Or create a `.env` file with `FOOTBALL_API_KEY=your_key_here`
 
 #### No tips returned (empty array)
 - **Cause**: No matches on the specified date/time window, or API rate limiting

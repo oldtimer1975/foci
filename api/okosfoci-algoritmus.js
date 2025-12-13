@@ -6,7 +6,7 @@ const axios = require('axios');
  */
 
 // Configuration
-const API_KEY = process.env.FOOTBALL_API_KEY || '994b489e67a89ab53279084b9bf8199a';
+const API_KEY = process.env.FOOTBALL_API_KEY || '';
 const API_BASE = 'https://v3.football.api-sports.io';
 
 // Major leagues configuration
@@ -265,7 +265,7 @@ async function generateTips(date, timeWindow, limit) {
  */
 function isConfigured() {
   return {
-    apiKeyPresent: !!API_KEY && API_KEY !== 'your_api_key_here',
+    apiKeyPresent: !!API_KEY && API_KEY.length > 0,
     leaguesCount: LEAGUES.length,
     timeWindowsCount: TIME_WINDOWS.length
   };
