@@ -1,0 +1,98 @@
+{
+  "ok": true,
+  "date": "2024-12-14",
+  "timeWindow": "all",
+  "count": 3,
+  "tips": [
+    {
+      "fixtureId": 1234567,
+      "league": "Premier League",
+      "leagueId": 39,
+      "date": "2024-12-14T15:00:00+00:00",
+      "timestamp": 1702566000,
+      "hour": 15,
+      "timeWindow": "8-16",
+      "home": "Arsenal",
+      "away": "Chelsea",
+      "home_db": {
+        "name": "Arsenal",
+        "country": "England",
+        "league": "Premier League",
+        "stadium": "Emirates Stadium",
+        "founded": 1886
+      },
+      "away_db": {
+        "name": "Chelsea",
+        "country": "England",
+        "league": "Premier League",
+        "stadium": "Stamford Bridge",
+        "founded": 1905
+      },
+      "venue": "Emirates Stadium",
+      "status": "NS",
+      "tip": "Home",
+      "odds": 1.85,
+      "betType": "Match Winner"
+    },
+    {
+      "fixtureId": 1234568,
+      "league": "La Liga",
+      "leagueId": 140,
+      "date": "2024-12-14T20:00:00+00:00",
+      "timestamp": 1702584000,
+      "hour": 20,
+      "timeWindow": "16-24",
+      "home": "Barcelona",
+      "away": "Real Madrid",
+      "home_db": {
+        "name": "Barcelona",
+        "country": "Spain",
+        "league": "La Liga",
+        "stadium": "Camp Nou",
+        "founded": 1899
+      },
+      "away_db": {
+        "name": "Real Madrid",
+        "country": "Spain",
+        "league": "La Liga",
+        "stadium": "Santiago Bernabéu",
+        "founded": 1902
+      },
+      "venue": "Camp Nou",
+      "status": "NS",
+      "tip": "Over 2.5",
+      "odds": 1.72,
+      "betType": "Over/Under 2.5"
+    },
+    {
+      "fixtureId": 1234569,
+      "league": "Bundesliga",
+      "leagueId": 78,
+      "date": "2024-12-14T17:30:00+00:00",
+      "timestamp": 1702575000,
+      "hour": 17,
+      "timeWindow": "16-24",
+      "home": "Bayern Munich",
+      "away": "Borussia Dortmund",
+      "home_db": {
+        "name": "Bayern Munich",
+        "country": "Germany",
+        "league": "Bundesliga",
+        "stadium": "Allianz Arena",
+        "founded": 1900
+      },
+      "away_db": {
+        "name": "Borussia Dortmund",
+        "country": "Germany",
+        "league": "Bundesliga",
+        "stadium": "Signal Iduna Park",
+        "founded": 1909
+      },
+      "venue": "Allianz Arena",
+      "status": "NS",
+      "tip": "Yes",
+      "odds": 1.50,
+      "betType": "Both Teams to Score"
+    }
+  ]
+}
