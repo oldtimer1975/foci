@@ -313,12 +313,18 @@ if (require.main === module) {
   const options = {};
   
   for (let i = 0; i < args.length; i += 2) {
-    const key = args[i].replace(/^--/, '');
+    const key = args[i]?.replace(/^--/, '');
+    
+    // Check if value exists
+    if (i + 1 >= args.length) break;
     const value = args[i + 1];
     
     if (key === 'date') options.date = value;
     if (key === 'timeWindow') options.timeWindow = value;
-    if (key === 'maxMatches') options.maxMatches = parseInt(value);
+    if (key === 'maxMatches') {
+      const parsed = parseInt(value, 10);
+      if (!isNaN(parsed)) options.maxMatches = parsed;
+    }
   }
   
   // Load API key from environment

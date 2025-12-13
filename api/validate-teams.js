@@ -179,7 +179,10 @@ if (require.main === module) {
   const options = {};
   
   for (let i = 0; i < args.length; i += 2) {
-    const key = args[i].replace(/^--/, '');
+    const key = args[i]?.replace(/^--/, '');
+    
+    // Check if value exists
+    if (i + 1 >= args.length) break;
     const value = args[i + 1];
     
     if (key === 'date') options.date = value;
