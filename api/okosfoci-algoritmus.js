@@ -110,12 +110,12 @@ function findStrongestTip(bookmakers, tippTypes) {
     return { tip: null, odds: null, betType: null };
   }
 
-  let bestTip = null;
-  let lowestOdds = Infinity;
-  let bestBetType = null;
-
   // Iterate through each bet type in priority order
   for (const tippType of tippTypes) {
+    let bestTip = null;
+    let lowestOdds = Infinity;
+
+    // Check all bookmakers for this bet type to find the lowest odds
     for (const bookmaker of bookmakers) {
       const bet = bookmaker.bets?.find(b => b.name === tippType);
       if (!bet || !bet.values) continue;
@@ -126,20 +126,22 @@ function findStrongestTip(bookmakers, tippTypes) {
         if (!isNaN(odds) && odds < lowestOdds) {
           lowestOdds = odds;
           bestTip = value.value;
-          bestBetType = tippType;
         }
       }
     }
 
-    // If we found a tip for this bet type, use it (prioritize by tippTypes order)
-    if (bestTip) break;
+    // If we found a tip for this bet type, return it (prioritize by tippTypes order)
+    if (bestTip) {
+      return {
+        tip: bestTip,
+        odds: lowestOdds !== Infinity ? lowestOdds : null,
+        betType: tippType
+      };
+    }
   }
 
-  return {
-    tip: bestTip,
-    odds: lowestOdds !== Infinity ? lowestOdds : null,
-    betType: bestBetType
-  };
+  // No tips found
+  return { tip: null, odds: null, betType: null };
 }
 
 // ======= API Functions =======
@@ -267,7 +269,12 @@ async function generateTips(options = {}) {
         console.log(`     ⚠️  No odds available`);
       }
 
-      // Rate limiting
+      // Check if we've reached the limit
+      if (allTips.length >= maxMatches) {
+        break;
+      }
+
+      // Rate limiting (only if we're going to process more fixtures)
       await new Promise(resolve => setTimeout(resolve, apiDelay));
     }
 

@@ -21,7 +21,7 @@ Villarreal|Spain|La Liga|Estadio de la Cerámica|1923
 Real Sociedad|Spain|La Liga|Anoeta|1909
 Real Betis|Spain|La Liga|Benito Villamarín|1907
 Athletic Bilbao|Spain|La Liga|San Mamés|1898
-Girona|Spain|La Liga|Montilivi|1930
+Girona|Spain|La Liga|Estadi Montilivi|1930
 
 Bayern Munich|Germany|Bundesliga|Allianz Arena|1900
 Borussia Dortmund|Germany|Bundesliga|Signal Iduna Park|1909
