@@ -1,0 +1,33 @@
+{
+  "leagues": [
+    {
+      "id": 39,
+      "season": 2024,
+      "name": "Premier League"
+    },
+    {
+      "id": 140,
+      "season": 2024,
+      "name": "La Liga"
+    },
+    {
+      "id": 78,
+      "season": 2024,
+      "name": "Bundesliga"
+    },
+    {
+      "id": 135,
+      "season": 2024,
+      "name": "Serie A"
+    }
+  ],
+  "tipp_types": [
+    "Match Winner",
+    "Double Chance",
+    "Over/Under 2.5",
+    "Both Teams to Score"
+  ],
+  "default_time_window": "all",
+  "max_matches": 20,
+  "api_delay_ms": 300
+}

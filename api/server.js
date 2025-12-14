@@ -3,6 +3,7 @@ const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 const fg = require('fast-glob');
+const { generateTips } = require('./okosfoci-algoritmus');
 
 const DATA_ROOT = '/home/kali/Downloads/meccsek'; // állítsd be, ha más
 const app = express();
@@ -178,6 +179,72 @@ app.get('/browse', async (req, res) => {
   }
 
   return res.status(400).json({ ok: false, error: 'unsupported file type' });
+});
+
+// /tippek - Generate tips using okosfoci-algoritmus
+// Query parameters:
+//   - date: YYYY-MM-DD format (default: today)
+//   - timeWindow: all|0-8|8-16|16-24 (default: all)
+//   - limit: maximum number of matches (default: from config)
+app.get('/tippek', async (req, res) => {
+  try {
+    const date = req.query.date || new Date().toISOString().slice(0, 10);
+    const timeWindow = req.query.timeWindow || 'all';
+    const limit = req.query.limit ? parseInt(req.query.limit, 10) : undefined;
+
+    // Validate date format
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+      return res.status(400).json({ 
+        ok: false, 
+        error: 'Invalid date format. Use YYYY-MM-DD' 
+      });
+    }
+
+    // Validate time window
+    const validWindows = ['all', '0-8', '8-16', '16-24'];
+    if (!validWindows.includes(timeWindow)) {
+      return res.status(400).json({ 
+        ok: false, 
+        error: `Invalid timeWindow. Use one of: ${validWindows.join(', ')}` 
+      });
+    }
+
+    // Validate limit
+    if (limit !== undefined && (isNaN(limit) || limit < 1 || limit > 100)) {
+      return res.status(400).json({ 
+        ok: false, 
+        error: 'Invalid limit. Must be a number between 1 and 100' 
+      });
+    }
+
+    console.log(`[/tippek] Generating tips for ${date}, window: ${timeWindow}, limit: ${limit || 'default'}`);
+
+    const options = {
+      date,
+      timeWindow,
+      maxMatches: limit
+    };
+
+    const tips = await generateTips(options);
+
+    return res.json({
+      ok: true,
+      date,
+      timeWindow,
+      count: tips.length,
+      tips
+    });
+
+  } catch (error) {
+    console.error('[/tippek] Error:', error);
+    
+    // Always return JSON, never HTML
+    return res.status(500).json({
+      ok: false,
+      error: 'Internal server error',
+      message: error.message || 'Unknown error occurred'
+    });
+  }
 });
 
 const PORT = process.env.PORT || 8081;
