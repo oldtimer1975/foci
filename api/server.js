@@ -1,17 +1,12 @@
-// Load environment variables from .env file if it exists
-require('dotenv').config();
-
 const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 const fg = require('fast-glob');
-const algoritmus = require('./okosfoci-algoritmus');
+const { generateTips } = require('./okosfoci-algoritmus');
 
-const DATA_ROOT = process.env.DATA_ROOT || './data';
+const DATA_ROOT = '/home/kali/Downloads/meccsek'; // állítsd be, ha más
 const app = express();
-
-// CORS configuration - enable for all origins
 app.use(cors());
 
 // Kérés log
@@ -186,175 +181,71 @@ app.get('/browse', async (req, res) => {
   return res.status(400).json({ ok: false, error: 'unsupported file type' });
 });
 
-// /windows – Return available time windows
-app.get('/windows', (req, res) => {
-  console.log('[ENDPOINT] GET /windows');
-  res.json({
-    ok: true,
-    windows: [
-      { label: '0-8', value: '0-8', description: '0-8 óra' },
-      { label: '8-16', value: '8-16', description: '8-16 óra' },
-      { label: '16-24', value: '16-24', description: '16-24 óra' },
-      { label: 'all', value: 'all', description: 'Egész nap' }
-    ]
-  });
-});
-
-// /limits – Return available match count limits
-app.get('/limits', (req, res) => {
-  console.log('[ENDPOINT] GET /limits');
-  res.json({
-    ok: true,
-    limits: [3, 6, 8, 10]
-  });
-});
-
-// /tippek – Generate tips based on date, time window, and limit
+// /tippek - Generate tips using okosfoci-algoritmus
+// Query parameters:
+//   - date: YYYY-MM-DD format (default: today)
+//   - timeWindow: all|0-8|8-16|16-24 (default: all)
+//   - limit: maximum number of matches (default: from config)
 app.get('/tippek', async (req, res) => {
-  console.log('[ENDPOINT] GET /tippek', req.query);
-  
   try {
-    // Extract and validate parameters
     const date = req.query.date || new Date().toISOString().slice(0, 10);
-    const timeWindow = req.query.timeWindow || req.query.window || 'all';
-    const limit = parseInt(req.query.limit || '6', 10);
+    const timeWindow = req.query.timeWindow || 'all';
+    const limit = req.query.limit ? parseInt(req.query.limit, 10) : undefined;
 
     // Validate date format
     if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
-      return res.status(400).json({
-        ok: false,
-        error: 'Invalid date format',
-        message: 'Date must be in YYYY-MM-DD format'
+      return res.status(400).json({ 
+        ok: false, 
+        error: 'Invalid date format. Use YYYY-MM-DD' 
       });
     }
 
     // Validate time window
     const validWindows = ['all', '0-8', '8-16', '16-24'];
     if (!validWindows.includes(timeWindow)) {
-      return res.status(400).json({
-        ok: false,
-        error: 'Invalid time window',
-        message: `Time window must be one of: ${validWindows.join(', ')}`
+      return res.status(400).json({ 
+        ok: false, 
+        error: `Invalid timeWindow. Use one of: ${validWindows.join(', ')}` 
       });
     }
 
     // Validate limit
-    const validLimits = [3, 6, 8, 10];
-    if (!validLimits.includes(limit)) {
-      return res.status(400).json({
-        ok: false,
-        error: 'Invalid limit',
-        message: `Limit must be one of: ${validLimits.join(', ')}`
+    if (limit !== undefined && (isNaN(limit) || limit < 1 || limit > 100)) {
+      return res.status(400).json({ 
+        ok: false, 
+        error: 'Invalid limit. Must be a number between 1 and 100' 
       });
     }
 
-    // Check if algorithm is configured
-    const config = algoritmus.isConfigured();
-    if (!config.apiKeyPresent) {
-      return res.status(500).json({
-        ok: false,
-        error: 'API not configured',
-        message: 'Football API key is missing. Please set FOOTBALL_API_KEY environment variable.'
-      });
-    }
+    console.log(`[/tippek] Generating tips for ${date}, window: ${timeWindow}, limit: ${limit || 'default'}`);
 
-    // Generate tips
-    console.log(`[TIPPEK] Generating tips for date=${date}, window=${timeWindow}, limit=${limit}`);
-    const tips = await algoritmus.generateTips(date, timeWindow, limit);
+    const options = {
+      date,
+      timeWindow,
+      maxMatches: limit
+    };
 
-    res.json({
+    const tips = await generateTips(options);
+
+    return res.json({
       ok: true,
       date,
       timeWindow,
-      limit,
       count: tips.length,
       tips
     });
 
   } catch (error) {
-    console.error('[TIPPEK ERROR]', error.message);
-    res.status(500).json({
+    console.error('[/tippek] Error:', error);
+    
+    // Always return JSON, never HTML
+    return res.status(500).json({
       ok: false,
       error: 'Internal server error',
-      message: error.message
+      message: error.message || 'Unknown error occurred'
     });
   }
 });
 
-// /status – Return server status and configuration
-app.get('/status', (req, res) => {
-  console.log('[ENDPOINT] GET /status');
-  
-  const config = algoritmus.isConfigured();
-  
-  res.json({
-    ok: true,
-    status: 'running',
-    version: '1.0.0',
-    timestamp: new Date().toISOString(),
-    config: {
-      apiKeyPresent: config.apiKeyPresent,
-      leaguesCount: config.leaguesCount,
-      timeWindowsCount: config.timeWindowsCount,
-      dataRoot: DATA_ROOT,
-      dataRootExists: fs.existsSync(DATA_ROOT)
-    },
-    endpoints: [
-      'GET /windows',
-      'GET /limits',
-      'GET /tippek',
-      'GET /status',
-      'GET /files',
-      'GET /browse'
-    ]
-  });
-});
-
-// JSON-only error handler middleware - must be after all routes
-app.use((req, res, next) => {
-  console.log('[404]', req.method, req.url);
-  res.status(404).json({
-    ok: false,
-    error: 'Not Found',
-    message: `Cannot ${req.method} ${req.url}`,
-    availableEndpoints: [
-      'GET /windows',
-      'GET /limits',
-      'GET /tippek?date=YYYY-MM-DD&timeWindow=all|0-8|8-16|16-24&limit=3|6|8|10',
-      'GET /status',
-      'GET /files',
-      'GET /browse?file=path&page=1&limit=10'
-    ]
-  });
-});
-
-// Global error handler - catches any unhandled errors
-app.use((err, req, res, next) => {
-  console.error('[ERROR]', err);
-  res.status(500).json({
-    ok: false,
-    error: 'Internal Server Error',
-    message: err.message || 'An unexpected error occurred'
-  });
-});
-
 const PORT = process.env.PORT || 8081;
-const HOST = '0.0.0.0';
-
-app.listen(PORT, HOST, () => {
-  console.log('='.repeat(60));
-  console.log(`Okosfoci API Server Started`);
-  console.log(`URL: http://${HOST}:${PORT}`);
-  console.log(`DATA_ROOT: ${DATA_ROOT}`);
-  console.log(`API Key Present: ${algoritmus.isConfigured().apiKeyPresent}`);
-  console.log(`Leagues Configured: ${algoritmus.isConfigured().leaguesCount}`);
-  console.log('='.repeat(60));
-  console.log('Available Endpoints:');
-  console.log('  GET /windows');
-  console.log('  GET /limits');
-  console.log('  GET /tippek?date=YYYY-MM-DD&timeWindow=all&limit=6');
-  console.log('  GET /status');
-  console.log('  GET /files');
-  console.log('  GET /browse?file=path');
-  console.log('='.repeat(60));
-});
+app.listen(PORT, '0.0.0.0', () => console.log(`Okosfoci API on http://0.0.0.0:${PORT} (DATA_ROOT=${DATA_ROOT})`));

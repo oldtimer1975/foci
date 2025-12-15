@@ -1,54 +1,157 @@
 const axios = require('axios');
+const fs = require('fs');
+const path = require('path');
 
-/**
- * Okosfoci Algorithm Module
- * Fetches fixtures and odds from football API and generates tips
- */
-
-// Configuration
-const API_KEY = process.env.FOOTBALL_API_KEY || '';
-const API_BASE = 'https://v3.football.api-sports.io';
-const API_RATE_LIMIT_MS = parseInt(process.env.API_RATE_LIMIT_MS || '300', 10);
-
-// Major leagues configuration
-const LEAGUES = [
-  { name: "Premier League", id: 39, country: "England" },
-  { name: "La Liga", id: 140, country: "Spain" },
-  { name: "Bundesliga", id: 78, country: "Germany" },
-  { name: "Serie A", id: 135, country: "Italy" },
-  { name: "Ligue 1", id: 61, country: "France" },
-  { name: "Eredivisie", id: 88, country: "Netherlands" },
-  { name: "Primeira Liga", id: 94, country: "Portugal" },
-  { name: "Championship", id: 40, country: "England" }
-];
-
-// Time window definitions
-const TIME_WINDOWS = [
-  { label: "0-8", start: 0, end: 8 },
-  { label: "8-16", start: 8, end: 16 },
-  { label: "16-24", start: 16, end: 24 }
-];
-
-/**
- * Get time window label for an hour
- */
-function getTimeWindow(hour) {
-  for (const win of TIME_WINDOWS) {
-    if (hour >= win.start && hour < win.end) return win.label;
+// ======= Load Configuration =======
+function loadConfig() {
+  const configPath = path.join(__dirname, 'config.json');
+  const examplePath = path.join(__dirname, 'config.example.json');
+  
+  if (fs.existsSync(configPath)) {
+    return JSON.parse(fs.readFileSync(configPath, 'utf-8'));
+  } else if (fs.existsSync(examplePath)) {
+    console.warn('⚠️  config.json not found, using config.example.json');
+    return JSON.parse(fs.readFileSync(examplePath, 'utf-8'));
+  } else {
+    throw new Error('No config file found. Please create config.json from config.example.json');
   }
-  return "other";
 }
 
-/**
- * Fetch fixtures for a specific date and league
- */
-async function fetchFixtures(leagueId, date) {
-  try {
-    const url = `${API_BASE}/fixtures?league=${leagueId}&date=${date}`;
-    const response = await axios.get(url, {
-      headers: { 'x-apisports-key': API_KEY },
-      timeout: 10000
+// ======= Load Environment Variables =======
+function loadEnv() {
+  const envPath = path.join(__dirname, '.env');
+  if (fs.existsSync(envPath)) {
+    const envContent = fs.readFileSync(envPath, 'utf-8');
+    envContent.split('\n').forEach(line => {
+      const trimmed = line.trim();
+      if (trimmed && !trimmed.startsWith('#')) {
+        const [key, ...valueParts] = trimmed.split('=');
+        if (key) {
+          process.env[key.trim()] = valueParts.join('=').trim();
+        }
+      }
     });
+  }
+}
+
+// ======= Load Team Database =======
+function loadTeamDatabase() {
+  const teamDb = new Map();
+  const jsonPath = path.join(__dirname, '..', 'data', 'teams.json');
+  const txtPath = path.join(__dirname, '..', 'data', 'teams.txt');
+
+  // Load JSON
+  if (fs.existsSync(jsonPath)) {
+    try {
+      const data = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
+      if (data.teams && Array.isArray(data.teams)) {
+        data.teams.forEach(team => {
+          if (team.name) {
+            teamDb.set(team.name.toLowerCase(), team);
+          }
+        });
+      }
+    } catch (e) {
+      console.warn('⚠️  Failed to load teams.json:', e.message);
+    }
+  }
+
+  // Load TXT (pipe-separated format)
+  if (fs.existsSync(txtPath)) {
+    try {
+      const content = fs.readFileSync(txtPath, 'utf-8');
+      const lines = content.split('\n');
+      
+      lines.forEach(line => {
+        const trimmed = line.trim();
+        if (trimmed && !trimmed.startsWith('#')) {
+          const parts = trimmed.split('|').map(p => p.trim());
+          if (parts.length >= 5) {
+            const [name, country, league, stadium, founded] = parts;
+            // Only add if not already in DB (JSON takes precedence)
+            if (!teamDb.has(name.toLowerCase())) {
+              teamDb.set(name.toLowerCase(), {
+                name,
+                country,
+                league,
+                stadium,
+                founded: parseInt(founded, 10)
+              });
+            }
+          }
+        }
+      });
+    } catch (e) {
+      console.warn('⚠️  Failed to load teams.txt:', e.message);
+    }
+  }
+
+  return teamDb;
+}
+
+// ======= Time Window Functions =======
+function getTimeWindowLabel(hour) {
+  if (hour >= 0 && hour < 8) return '0-8';
+  if (hour >= 8 && hour < 16) return '8-16';
+  if (hour >= 16 && hour < 24) return '16-24';
+  return 'other';
+}
+
+function matchesTimeWindow(hour, timeWindow) {
+  if (timeWindow === 'all') return true;
+  const label = getTimeWindowLabel(hour);
+  return label === timeWindow;
+}
+
+// ======= Strongest Tip Selection =======
+// Prioritized bet types in order of preference
+function findStrongestTip(bookmakers, tippTypes) {
+  if (!bookmakers || bookmakers.length === 0) {
+    return { tip: null, odds: null, betType: null };
+  }
+
+  // Iterate through each bet type in priority order
+  for (const tippType of tippTypes) {
+    let bestTip = null;
+    let lowestOdds = Infinity;
+
+    // Check all bookmakers for this bet type to find the lowest odds
+    for (const bookmaker of bookmakers) {
+      const bet = bookmaker.bets?.find(b => b.name === tippType);
+      if (!bet || !bet.values) continue;
+
+      // Find the lowest odds value in this bet
+      for (const value of bet.values) {
+        const odds = parseFloat(value.odd);
+        if (!isNaN(odds) && odds < lowestOdds) {
+          lowestOdds = odds;
+          bestTip = value.value;
+        }
+      }
+    }
+
+    // If we found a tip for this bet type, return it (prioritize by tippTypes order)
+    if (bestTip) {
+      return {
+        tip: bestTip,
+        odds: lowestOdds !== Infinity ? lowestOdds : null,
+        betType: tippType
+      };
+    }
+  }
+
+  // No tips found
+  return { tip: null, odds: null, betType: null };
+}
+
+// ======= API Functions =======
+async function fetchFixtures(leagueId, season, date, apiKey) {
+  try {
+    const url = `https://v3.football.api-sports.io/fixtures?league=${leagueId}&season=${season}&date=${date}`;
+    const response = await axios.get(url, {
+      headers: { 'x-apisports-key': apiKey }
+    });
+    
     return response.data.response || [];
   } catch (error) {
     console.error(`Error fetching fixtures for league ${leagueId}:`, error.message);
@@ -56,225 +159,164 @@ async function fetchFixtures(leagueId, date) {
   }
 }
 
-/**
- * Fetch odds for a specific fixture
- */
-async function fetchOdds(fixtureId) {
+async function fetchOdds(fixtureId, apiKey) {
   try {
-    const url = `${API_BASE}/odds?fixture=${fixtureId}`;
+    const url = `https://v3.football.api-sports.io/odds?fixture=${fixtureId}`;
     const response = await axios.get(url, {
-      headers: { 'x-apisports-key': API_KEY },
-      timeout: 10000
+      headers: { 'x-apisports-key': apiKey }
     });
-    return response.data.response || [];
+    
+    return response.data.response?.[0]?.bookmakers || [];
   } catch (error) {
     console.error(`Error fetching odds for fixture ${fixtureId}:`, error.message);
     return [];
   }
 }
 
-/**
- * Extract best tip from odds data
- * Checks multiple bet types: Match Winner, Double Chance, Over/Under 2.5, Both Teams to Score
- */
-function extractBestTip(oddsData) {
-  if (!oddsData || !oddsData.length) {
-    return { tip: null, tippText: "No odds available", odds: null, betType: null };
-  }
-
-  const bookmaker = oddsData[0]?.bookmakers?.[0];
-  if (!bookmaker || !bookmaker.bets) {
-    return { tip: null, tippText: "No odds available", odds: null, betType: null };
-  }
-
-  let bestTip = { tip: null, tippText: "No odds available", odds: null, betType: null, value: Infinity };
-
-  // Check Match Winner
-  const matchWinner = bookmaker.bets.find(b => b.name === 'Match Winner');
-  if (matchWinner && matchWinner.values && matchWinner.values.length === 3) {
-    const homeOdds = matchWinner.values.find(v => v.value === 'Home')?.odd;
-    const drawOdds = matchWinner.values.find(v => v.value === 'Draw')?.odd;
-    const awayOdds = matchWinner.values.find(v => v.value === 'Away')?.odd;
-
-    if (homeOdds && drawOdds && awayOdds) {
-      const options = [
-        { label: 'Home', value: Number(homeOdds), tip: 'Home' },
-        { label: 'Draw', value: Number(drawOdds), tip: 'Draw' },
-        { label: 'Away', value: Number(awayOdds), tip: 'Away' }
-      ];
-      const best = options.sort((a, b) => a.value - b.value)[0];
-      if (best.value < bestTip.value) {
-        bestTip = {
-          tip: best.tip,
-          tippText: best.label,
-          odds: { home: Number(homeOdds), draw: Number(drawOdds), away: Number(awayOdds) },
-          betType: 'Match Winner',
-          value: best.value
-        };
-      }
-    }
-  }
-
-  // Check Double Chance
-  const doubleChance = bookmaker.bets.find(b => b.name === 'Double Chance');
-  if (doubleChance && doubleChance.values) {
-    const options = doubleChance.values.map(v => ({
-      label: v.value,
-      value: Number(v.odd),
-      tip: v.value
-    }));
-    const best = options.sort((a, b) => a.value - b.value)[0];
-    if (best && best.value < bestTip.value) {
-      bestTip = {
-        tip: best.tip,
-        tippText: `Double Chance: ${best.label}`,
-        odds: doubleChance.values.reduce((acc, v) => ({ ...acc, [v.value]: Number(v.odd) }), {}),
-        betType: 'Double Chance',
-        value: best.value
-      };
-    }
-  }
-
-  // Check Over/Under 2.5
-  const overUnder = bookmaker.bets.find(b => b.name === 'Goals Over/Under' && b.values.some(v => v.value.includes('2.5')));
-  if (overUnder && overUnder.values) {
-    const over25 = overUnder.values.find(v => v.value === 'Over 2.5')?.odd;
-    const under25 = overUnder.values.find(v => v.value === 'Under 2.5')?.odd;
-    if (over25 && under25) {
-      const options = [
-        { label: 'Over 2.5', value: Number(over25), tip: 'Over 2.5' },
-        { label: 'Under 2.5', value: Number(under25), tip: 'Under 2.5' }
-      ];
-      const best = options.sort((a, b) => a.value - b.value)[0];
-      if (best.value < bestTip.value) {
-        bestTip = {
-          tip: best.tip,
-          tippText: best.label,
-          odds: { over: Number(over25), under: Number(under25) },
-          betType: 'Over/Under 2.5',
-          value: best.value
-        };
-      }
-    }
-  }
-
-  // Check Both Teams to Score
-  const btts = bookmaker.bets.find(b => b.name === 'Both Teams Score');
-  if (btts && btts.values) {
-    const yes = btts.values.find(v => v.value === 'Yes')?.odd;
-    const no = btts.values.find(v => v.value === 'No')?.odd;
-    if (yes && no) {
-      const options = [
-        { label: 'BTTS Yes', value: Number(yes), tip: 'BTTS Yes' },
-        { label: 'BTTS No', value: Number(no), tip: 'BTTS No' }
-      ];
-      const best = options.sort((a, b) => a.value - b.value)[0];
-      if (best.value < bestTip.value) {
-        bestTip = {
-          tip: best.tip,
-          tippText: best.label,
-          odds: { yes: Number(yes), no: Number(no) },
-          betType: 'Both Teams to Score',
-          value: best.value
-        };
-      }
-    }
-  }
-
-  // Remove the internal value field before returning
-  delete bestTip.value;
-  return bestTip;
-}
-
-/**
- * Generate tips for a specific date, time window, and limit
- */
-async function generateTips(date, timeWindow, limit) {
-  const results = [];
+// ======= Main Algorithm =======
+async function generateTips(options = {}) {
+  loadEnv();
   
-  // Validate inputs
-  if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
-    throw new Error('Invalid date format. Expected YYYY-MM-DD');
-  }
+  const config = loadConfig();
+  const apiKey = process.env.X_APISPORTS_KEY || options.apiKey;
   
-  const validTimeWindows = ['all', '0-8', '8-16', '16-24'];
-  if (!validTimeWindows.includes(timeWindow)) {
-    throw new Error(`Invalid time window. Expected one of: ${validTimeWindows.join(', ')}`);
-  }
-  
-  const validLimits = [3, 6, 8, 10];
-  if (!validLimits.includes(limit)) {
-    throw new Error(`Invalid limit. Expected one of: ${validLimits.join(', ')}`);
+  if (!apiKey || apiKey === 'your_api_key_here') {
+    throw new Error('API key not configured. Please set X_APISPORTS_KEY in .env file');
   }
 
-  // Fetch fixtures from all leagues
-  for (const league of LEAGUES) {
-    if (results.length >= limit) break;
+  const leagues = options.leagues || config.leagues;
+  const date = options.date || new Date().toISOString().slice(0, 10);
+  const timeWindow = options.timeWindow || config.default_time_window;
+  const maxMatches = options.maxMatches || config.max_matches;
+  const tippTypes = options.tippTypes || config.tipp_types;
+  const apiDelay = options.apiDelay || config.api_delay_ms || 300;
 
-    const fixtures = await fetchFixtures(league.id, date);
+  const teamDb = loadTeamDatabase();
+  const allTips = [];
+
+  console.log(`🔍 Generating tips for ${date}`);
+  console.log(`📊 Time window: ${timeWindow}`);
+  console.log(`🎯 Max matches: ${maxMatches}`);
+  console.log(`🎲 Tip types: ${tippTypes.join(', ')}`);
+  console.log('');
+
+  for (const league of leagues) {
+    console.log(`\n=== ${league.name} (League ID: ${league.id}, Season: ${league.season}) ===`);
     
-    for (const fixture of fixtures) {
-      if (results.length >= limit) break;
+    const fixtures = await fetchFixtures(league.id, league.season, date, apiKey);
+    
+    if (fixtures.length === 0) {
+      console.log(`  ℹ️  No fixtures found for ${date}`);
+      continue;
+    }
 
-      // Check time window
+    console.log(`  Found ${fixtures.length} fixture(s)`);
+
+    for (const fixture of fixtures) {
+      // Check max matches limit
+      if (allTips.length >= maxMatches) {
+        console.log(`\n✅ Reached maximum of ${maxMatches} matches`);
+        break;
+      }
+
       const fixtureDate = new Date(fixture.fixture.date);
       const hour = fixtureDate.getUTCHours();
-      const fixtureWindow = getTimeWindow(hour);
-
-      if (timeWindow !== 'all' && fixtureWindow !== timeWindow) {
+      
+      // Time window filtering
+      if (!matchesTimeWindow(hour, timeWindow)) {
         continue;
       }
 
-      // Fetch odds for this fixture
-      const oddsData = await fetchOdds(fixture.fixture.id);
-      const tipData = extractBestTip(oddsData);
+      const homeTeam = fixture.teams.home.name;
+      const awayTeam = fixture.teams.away.name;
 
-      // Build result object
-      results.push({
+      console.log(`  ⚽ ${homeTeam} vs ${awayTeam}`);
+
+      // Fetch odds
+      const bookmakers = await fetchOdds(fixture.fixture.id, apiKey);
+      
+      // Find strongest tip
+      const { tip, odds, betType } = findStrongestTip(bookmakers, tippTypes);
+
+      // Lookup team metadata
+      const homeDb = teamDb.get(homeTeam.toLowerCase()) || null;
+      const awayDb = teamDb.get(awayTeam.toLowerCase()) || null;
+
+      const tipData = {
         fixtureId: fixture.fixture.id,
-        league: {
-          name: league.name,
-          country: league.country,
-          id: league.id
-        },
-        fixture: {
-          date: fixture.fixture.date,
-          venue: fixture.fixture.venue?.name || 'Unknown',
-          status: fixture.fixture.status?.long || 'Scheduled'
-        },
-        teams: {
-          home: fixture.teams.home.name,
-          away: fixture.teams.away.name
-        },
-        timeWindow: fixtureWindow,
-        tip: tipData.tip,
-        tippText: tipData.tippText,
-        odds: tipData.odds,
-        betType: tipData.betType
-      });
+        league: league.name,
+        leagueId: league.id,
+        date: fixture.fixture.date,
+        timestamp: fixture.fixture.timestamp,
+        hour: hour,
+        timeWindow: getTimeWindowLabel(hour),
+        home: homeTeam,
+        away: awayTeam,
+        home_db: homeDb,
+        away_db: awayDb,
+        venue: fixture.fixture.venue?.name || null,
+        status: fixture.fixture.status.short,
+        tip: tip,
+        odds: odds,
+        betType: betType
+      };
 
-      // Rate limiting - wait between API calls to avoid quota issues
-      await new Promise(resolve => setTimeout(resolve, API_RATE_LIMIT_MS));
+      allTips.push(tipData);
+      
+      if (tip) {
+        console.log(`     💡 Tip: ${tip} (${betType}) @ ${odds}`);
+      } else {
+        console.log(`     ⚠️  No odds available`);
+      }
+
+      // Check if we've reached the limit
+      if (allTips.length >= maxMatches) {
+        break;
+      }
+
+      // Rate limiting (only if we're going to process more fixtures)
+      await new Promise(resolve => setTimeout(resolve, apiDelay));
+    }
+
+    if (allTips.length >= maxMatches) break;
+  }
+
+  console.log(`\n\n📝 Generated ${allTips.length} tip(s)`);
+  
+  return allTips;
+}
+
+// ======= CLI Execution =======
+if (require.main === module) {
+  const args = process.argv.slice(2);
+  const options = {};
+
+  // Parse command line arguments
+  for (let i = 0; i < args.length; i++) {
+    if (args[i] === '--date' && args[i + 1]) {
+      options.date = args[i + 1];
+      i++;
+    } else if (args[i] === '--timeWindow' && args[i + 1]) {
+      options.timeWindow = args[i + 1];
+      i++;
+    } else if (args[i] === '--maxMatches' && args[i + 1]) {
+      options.maxMatches = parseInt(args[i + 1], 10);
+      i++;
     }
   }
 
-  return results;
+  generateTips(options)
+    .then(tips => {
+      const outputPath = path.join(__dirname, 'tippek_OKOSFOCI.json');
+      fs.writeFileSync(outputPath, JSON.stringify(tips, null, 2));
+      console.log(`\n✅ Saved to ${outputPath}`);
+      process.exit(0);
+    })
+    .catch(error => {
+      console.error('\n❌ Error:', error.message);
+      process.exit(1);
+    });
 }
 
-/**
- * Check if API is configured correctly
- */
-function isConfigured() {
-  return {
-    apiKeyPresent: !!API_KEY && API_KEY.length > 0,
-    leaguesCount: LEAGUES.length,
-    timeWindowsCount: TIME_WINDOWS.length
-  };
-}
-
-module.exports = {
-  generateTips,
-  isConfigured,
-  LEAGUES,
-  TIME_WINDOWS
-};
+// Export for use in server.js
+module.exports = { generateTips, loadTeamDatabase };

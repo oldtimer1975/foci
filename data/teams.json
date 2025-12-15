@@ -1,0 +1,95 @@
+{
+  "teams": [
+    {
+      "name": "Arsenal",
+      "country": "England",
+      "league": "Premier League",
+      "stadium": "Emirates Stadium",
+      "founded": 1886
+    },
+    {
+      "name": "Chelsea",
+      "country": "England",
+      "league": "Premier League",
+      "stadium": "Stamford Bridge",
+      "founded": 1905
+    },
+    {
+      "name": "Liverpool",
+      "country": "England",
+      "league": "Premier League",
+      "stadium": "Anfield",
+      "founded": 1892
+    },
+    {
+      "name": "Manchester City",
+      "country": "England",
+      "league": "Premier League",
+      "stadium": "Etihad Stadium",
+      "founded": 1880
+    },
+    {
+      "name": "Manchester United",
+      "country": "England",
+      "league": "Premier League",
+      "stadium": "Old Trafford",
+      "founded": 1878
+    },
+    {
+      "name": "Barcelona",
+      "country": "Spain",
+      "league": "La Liga",
+      "stadium": "Camp Nou",
+      "founded": 1899
+    },
+    {
+      "name": "Real Madrid",
+      "country": "Spain",
+      "league": "La Liga",
+      "stadium": "Santiago Bernabéu",
+      "founded": 1902
+    },
+    {
+      "name": "Atletico Madrid",
+      "country": "Spain",
+      "league": "La Liga",
+      "stadium": "Metropolitano",
+      "founded": 1903
+    },
+    {
+      "name": "Bayern Munich",
+      "country": "Germany",
+      "league": "Bundesliga",
+      "stadium": "Allianz Arena",
+      "founded": 1900
+    },
+    {
+      "name": "Borussia Dortmund",
+      "country": "Germany",
+      "league": "Bundesliga",
+      "stadium": "Signal Iduna Park",
+      "founded": 1909
+    },
+    {
+      "name": "AC Milan",
+      "country": "Italy",
+      "league": "Serie A",
+      "stadium": "San Siro",
+      "founded": 1899
+    },
+    {
+      "name": "Inter Milan",
+      "country": "Italy",
+      "league": "Serie A",
+      "stadium": "San Siro",
+      "founded": 1908
+    },
+    {
+      "name": "Juventus",
+      "country": "Italy",
+      "league": "Serie A",
+      "stadium": "Allianz Stadium",
+      "founded": 1897
+    }
+  ]
+}

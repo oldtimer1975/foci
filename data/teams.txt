@@ -1,0 +1,46 @@
+# Team Database - Plain Text Format
+# Format: TeamName|Country|League|Stadium|Founded
+
+Arsenal|England|Premier League|Emirates Stadium|1886
+Chelsea|England|Premier League|Stamford Bridge|1905
+Liverpool|England|Premier League|Anfield|1892
+Manchester City|England|Premier League|Etihad Stadium|1880
+Manchester United|England|Premier League|Old Trafford|1878
+Tottenham|England|Premier League|Tottenham Hotspur Stadium|1882
+Newcastle United|England|Premier League|St James' Park|1892
+Aston Villa|England|Premier League|Villa Park|1874
+Brighton|England|Premier League|Amex Stadium|1901
+West Ham|England|Premier League|London Stadium|1895
+
+Barcelona|Spain|La Liga|Camp Nou|1899
+Real Madrid|Spain|La Liga|Santiago Bernabéu|1902
+Atletico Madrid|Spain|La Liga|Metropolitano|1903
+Sevilla|Spain|La Liga|Ramón Sánchez Pizjuán|1890
+Valencia|Spain|La Liga|Mestalla|1919
+Villarreal|Spain|La Liga|Estadio de la Cerámica|1923
+Real Sociedad|Spain|La Liga|Anoeta|1909
+Real Betis|Spain|La Liga|Benito Villamarín|1907
+Athletic Bilbao|Spain|La Liga|San Mamés|1898
+Girona|Spain|La Liga|Estadi Montilivi|1930
+
+Bayern Munich|Germany|Bundesliga|Allianz Arena|1900
+Borussia Dortmund|Germany|Bundesliga|Signal Iduna Park|1909
+RB Leipzig|Germany|Bundesliga|Red Bull Arena|2009
+Bayer Leverkusen|Germany|Bundesliga|BayArena|1904
+Union Berlin|Germany|Bundesliga|Stadion An der Alten Försterei|1966
+Eintracht Frankfurt|Germany|Bundesliga|Deutsche Bank Park|1899
+Freiburg|Germany|Bundesliga|Europa-Park Stadion|1904
+VfB Stuttgart|Germany|Bundesliga|MHPArena|1893
+Wolfsburg|Germany|Bundesliga|Volkswagen Arena|1945
+Borussia Monchengladbach|Germany|Bundesliga|Borussia-Park|1900
+
+AC Milan|Italy|Serie A|San Siro|1899
+Inter Milan|Italy|Serie A|San Siro|1908
+Juventus|Italy|Serie A|Allianz Stadium|1897
+Napoli|Italy|Serie A|Diego Armando Maradona|1926
+AS Roma|Italy|Serie A|Stadio Olimpico|1927
+Lazio|Italy|Serie A|Stadio Olimpico|1900
+Atalanta|Italy|Serie A|Gewiss Stadium|1907
+Fiorentina|Italy|Serie A|Artemio Franchi|1926
+Bologna|Italy|Serie A|Renato Dall'Ara|1909
+Torino|Italy|Serie A|Stadio Olimpico Grande Torino|1906

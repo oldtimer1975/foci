@@ -1,8 +1,365 @@
-# Welcome to your Expo app 👋
+# Welcome to Okosfoci 👋
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-## Get started
+## Okosfoci API - Football Tips Generation
+
+The `api/` directory contains a sophisticated football tips generation system that:
+- Fetches fixtures and odds from API-Football (api-sports.io)
+- Generates intelligent tips using configurable algorithms
+- Filters by time windows and match limits
+- Integrates local team database for enriched metadata
+- Provides safe JSON API endpoints for mobile APK consumption
+
+### Features
+
+- **Time Window Filtering**: Filter matches by time ranges (0-8h, 8-16h, 16-24h, or all)
+- **Strongest Tip Selection**: Automatically selects the most likely outcome (lowest odds) across multiple bet types
+- **Team Database Integration**: Enriches match data with team metadata from local database
+- **MAX_MATCHES Limit**: Control the number of tips generated
+- **Multiple Bet Types**: Supports Match Winner, Double Chance, Over/Under 2.5, Both Teams to Score
+- **APK-Safe API**: Always returns JSON, never HTML error pages
+- **CORS Enabled**: Ready for cross-origin requests from mobile apps
+
+## Setup
+
+### Prerequisites
+
+- Node.js 18+ recommended
+- npm or yarn
+- API-Football API key from [https://dashboard.api-football.com/](https://dashboard.api-football.com/)
+
+### Installation
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+2. Navigate to the API directory:
+   ```bash
+   cd api
+   npm install
+   ```
+
+3. Configure environment variables:
+   ```bash
+   cp .env.example .env
+   ```
+   
+   Edit `.env` and set your API key:
+   ```
+   X_APISPORTS_KEY=your_actual_api_key_here
+   ```
+
+4. Configure leagues and settings (optional):
+   ```bash
+   cp config.example.json config.json
+   ```
+   
+   Edit `config.json` to customize:
+   - Leagues to query (id, season, name)
+   - Bet types priority order
+   - Default time window
+   - Maximum matches limit
+
+### Team Database
+
+The system uses a local team database to enrich match outputs. Two formats are supported:
+
+**JSON Format** (`data/teams.json`):
+```json
+{
+  "teams": [
+    {
+      "name": "Arsenal",
+      "country": "England",
+      "league": "Premier League",
+      "stadium": "Emirates Stadium",
+      "founded": 1886
+    }
+  ]
+}
+```
+
+**TXT Format** (`data/teams.txt`):
+```
+# Format: TeamName|Country|League|Stadium|Founded
+Arsenal|England|Premier League|Emirates Stadium|1886
+```
+
+Sample databases are included. Expand them as needed.
+
+## Usage
+
+### Running the Algorithm Script
+
+Generate tips using the command-line script:
+
+```bash
+cd api
+node okosfoci-algoritmus.js
+```
+
+**Options:**
+- `--date YYYY-MM-DD` - Date to generate tips for (default: today)
+- `--timeWindow all|0-8|8-16|16-24` - Time window filter (default: all)
+- `--maxMatches N` - Maximum number of matches (default: from config)
+
+**Examples:**
+```bash
+# Generate tips for today
+node okosfoci-algoritmus.js
+
+# Tips for specific date
+node okosfoci-algoritmus.js --date 2025-12-25
+
+# Evening matches only, max 10
+node okosfoci-algoritmus.js --date 2025-12-25 --timeWindow 16-24 --maxMatches 10
+```
+
+Output is saved to `api/tippek_OKOSFOCI.json`.
+
+### Running the API Server
+
+Start the Express server:
+
+```bash
+cd api
+npm start
+# or
+node server.js
+```
+
+Server runs on `http://0.0.0.0:8081` by default (configure with `PORT` env variable).
+
+### API Endpoints
+
+#### GET /tippek
+
+Generate tips on-demand with query parameters.
+
+**Query Parameters:**
+- `date` (optional): YYYY-MM-DD format (default: today)
+- `timeWindow` (optional): `all`, `0-8`, `8-16`, `16-24` (default: all)
+- `limit` (optional): Maximum matches, 1-100 (default: from config)
+
+**Response:**
+```json
+{
+  "ok": true,
+  "date": "2025-12-13",
+  "timeWindow": "all",
+  "count": 5,
+  "tips": [
+    {
+      "fixtureId": 12345,
+      "league": "Premier League",
+      "leagueId": 39,
+      "date": "2025-12-13T15:00:00+00:00",
+      "timestamp": 1702479600,
+      "hour": 15,
+      "timeWindow": "8-16",
+      "home": "Arsenal",
+      "away": "Chelsea",
+      "home_db": {
+        "name": "Arsenal",
+        "country": "England",
+        "league": "Premier League",
+        "stadium": "Emirates Stadium",
+        "founded": 1886
+      },
+      "away_db": {
+        "name": "Chelsea",
+        "country": "England",
+        "league": "Premier League",
+        "stadium": "Stamford Bridge",
+        "founded": 1905
+      },
+      "venue": "Emirates Stadium",
+      "status": "NS",
+      "tip": "Home",
+      "odds": 1.85,
+      "betType": "Match Winner"
+    }
+  ]
+}
+```
+
+**Error Response** (always JSON, never HTML):
+```json
+{
+  "ok": false,
+  "error": "Invalid date format. Use YYYY-MM-DD"
+}
+```
+
+**Examples with curl:**
+
+```bash
+# Get today's tips
+curl http://localhost:8081/tippek
+
+# Tips for specific date
+curl "http://localhost:8081/tippek?date=2025-12-25"
+
+# Evening matches only
+curl "http://localhost:8081/tippek?date=2025-12-25&timeWindow=16-24"
+
+# Limit to 5 matches
+curl "http://localhost:8081/tippek?date=2025-12-25&limit=5"
+
+# Combined parameters
+curl "http://localhost:8081/tippek?date=2025-12-25&timeWindow=8-16&limit=10"
+```
+
+#### GET /files
+
+List all available match data files (TXT/JSON) in DATA_ROOT.
+
+```bash
+curl http://localhost:8081/files
+```
+
+#### GET /browse
+
+Browse match data from TXT/JSON files with filtering and pagination.
+
+**Query Parameters:**
+- `file` (required): File path (relative or absolute)
+- `page` (optional): Page number (default: 1)
+- `limit` (optional): Items per page (default: 10)
+- `window` (optional): Time window filter (HH:MM-HH:MM)
+- `league` (optional): League name filter
+
+```bash
+curl "http://localhost:8081/browse?file=europe/england/2024-25_premier.json&page=1&limit=20"
+```
+
+### Validating Team Database
+
+Use the validation script to check for missing teams:
+
+```bash
+cd scripts
+node validate-teams.js --date 2025-12-13
+```
+
+This will:
+1. Fetch fixtures for the specified date
+2. Compare team names against your local database
+3. Report unmatched teams with suggested entries
+
+Add missing teams to `data/teams.json` or `data/teams.txt` to improve data quality.
+
+## Configuration
+
+### config.json
+
+```json
+{
+  "leagues": [
+    {
+      "id": 39,
+      "season": 2024,
+      "name": "Premier League"
+    }
+  ],
+  "tipp_types": [
+    "Match Winner",
+    "Double Chance",
+    "Over/Under 2.5",
+    "Both Teams to Score"
+  ],
+  "default_time_window": "all",
+  "max_matches": 20,
+  "api_delay_ms": 300
+}
+```
+
+**Settings:**
+- `leagues`: Array of leagues to query (id from API-Football, season year, display name)
+- `tipp_types`: Prioritized list of bet types (first match wins)
+- `default_time_window`: Default filter when not specified
+- `max_matches`: Default maximum tips to generate
+- `api_delay_ms`: Delay between API calls (rate limiting)
+
+### Time Windows
+
+- `0-8`: Matches between 00:00-07:59 UTC
+- `8-16`: Matches between 08:00-15:59 UTC
+- `16-24`: Matches between 16:00-23:59 UTC
+- `all`: All matches regardless of time
+
+## Algorithm Details
+
+### Strongest Tip Selection
+
+The algorithm selects the "strongest" tip by:
+
+1. Iterating through bet types in priority order (from `tipp_types` config)
+2. For each bet type, finding the outcome with the **lowest odds** (most likely)
+3. Selecting the first available strong tip based on priority
+
+**Example:**
+- Config: `["Match Winner", "Over/Under 2.5"]`
+- If Match Winner odds exist: Home=1.85, Draw=3.50, Away=4.00 → Selects "Home @ 1.85"
+- If Match Winner unavailable: Checks Over/Under 2.5 next
+
+This ensures the most confident predictions are selected first.
+
+### Error Handling
+
+The API always returns JSON, ensuring mobile APKs never receive HTML error pages:
+
+```json
+{
+  "ok": false,
+  "error": "Error description",
+  "message": "Detailed message if available"
+}
+```
+
+All endpoints use try-catch with JSON error responses, making them safe for APK consumption.
+
+## Development
+
+### Project Structure
+
+```
+foci/
+├── api/                          # Backend API
+│   ├── okosfoci-algoritmus.js    # Main algorithm
+│   ├── server.js                 # Express server
+│   ├── config.example.json       # Configuration template
+│   ├── .env.example              # Environment template
+│   └── package.json
+├── data/                         # Team database
+│   ├── teams.json
+│   └── teams.txt
+├── scripts/                      # Utility scripts
+│   └── validate-teams.js
+├── app/                          # Expo mobile app
+└── README.md
+```
+
+### Testing
+
+Test the API manually:
+
+```bash
+# Start server
+cd api
+npm start
+
+# In another terminal, test endpoints
+curl http://localhost:8081/tippek
+curl "http://localhost:8081/tippek?date=2025-12-25&timeWindow=16-24&limit=5"
+```
+
+## Expo App
+
+### Get started
 
 1. Install dependencies
 
@@ -25,297 +382,15 @@ In the output, you'll find options to open the app in a
 
 You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-## Okosfoci API Server
+### Get a fresh project
 
-The project includes a backend API server for generating football match tips based on odds data from external APIs.
-
-### Starting the API Server
+When you're ready, run:
 
 ```bash
-cd api
-npm install
-npm start
+npm run reset-project
 ```
 
-The server will start on `http://0.0.0.0:8081` by default.
-
-### Environment Variables
-
-- `FOOTBALL_API_KEY` - **Required** API key for football-api.sports.io. Get yours at https://www.api-football.com/
-- `PORT` - Server port (default: 8081)
-- `DATA_ROOT` - Path to local football data files (default: ./data)
-
-Create a `.env` file in the `api` directory (see `.env.example` for template):
-```bash
-cd api
-cp .env.example .env
-# Edit .env and add your API key
-```
-
-Example:
-```bash
-export FOOTBALL_API_KEY=your_api_key_here
-export PORT=3000
-export DATA_ROOT=/path/to/football/data
-npm start
-```
-
-### API Endpoints
-
-#### GET /windows
-Returns available time windows for filtering matches.
-
-**Response:**
-```json
-{
-  "ok": true,
-  "windows": [
-    { "label": "0-8", "value": "0-8", "description": "0-8 óra" },
-    { "label": "8-16", "value": "8-16", "description": "8-16 óra" },
-    { "label": "16-24", "value": "16-24", "description": "16-24 óra" },
-    { "label": "all", "value": "all", "description": "Egész nap" }
-  ]
-}
-```
-
-**Example:**
-```bash
-curl http://localhost:8081/windows
-```
-
-#### GET /limits
-Returns available match count limits.
-
-**Response:**
-```json
-{
-  "ok": true,
-  "limits": [3, 6, 8, 10]
-}
-```
-
-**Example:**
-```bash
-curl http://localhost:8081/limits
-```
-
-#### GET /tippek
-Generates football tips based on date, time window, and match count limit.
-
-**Query Parameters:**
-- `date` (optional) - Match date in YYYY-MM-DD format (default: today)
-- `timeWindow` (optional) - Time window: `all`, `0-8`, `8-16`, or `16-24` (default: all)
-- `limit` (optional) - Number of matches: 3, 6, 8, or 10 (default: 6)
-
-**Success Response:**
-```json
-{
-  "ok": true,
-  "date": "2024-12-13",
-  "timeWindow": "all",
-  "limit": 6,
-  "count": 6,
-  "tips": [
-    {
-      "fixtureId": 12345,
-      "league": {
-        "name": "Premier League",
-        "country": "England",
-        "id": 39
-      },
-      "fixture": {
-        "date": "2024-12-13T15:00:00+00:00",
-        "venue": "Old Trafford",
-        "status": "Not Started"
-      },
-      "teams": {
-        "home": "Manchester United",
-        "away": "Liverpool"
-      },
-      "timeWindow": "8-16",
-      "tip": "Home",
-      "tippText": "Home",
-      "odds": {
-        "home": 2.10,
-        "draw": 3.40,
-        "away": 3.20
-      },
-      "betType": "Match Winner"
-    }
-  ]
-}
-```
-
-**Error Response (Invalid Parameters):**
-```json
-{
-  "ok": false,
-  "error": "Invalid time window",
-  "message": "Time window must be one of: all, 0-8, 8-16, 16-24"
-}
-```
-
-**Error Response (API Not Configured):**
-```json
-{
-  "ok": false,
-  "error": "API not configured",
-  "message": "Football API key is missing. Please set FOOTBALL_API_KEY environment variable."
-}
-```
-
-**Examples:**
-```bash
-# Get tips for today, all time windows, 6 matches
-curl http://localhost:8081/tippek
-
-# Get tips for specific date and time window
-curl "http://localhost:8081/tippek?date=2024-12-15&timeWindow=16-24&limit=3"
-
-# Get tips for morning matches
-curl "http://localhost:8081/tippek?timeWindow=0-8&limit=10"
-```
-
-#### GET /status
-Returns server status and configuration information.
-
-**Response:**
-```json
-{
-  "ok": true,
-  "status": "running",
-  "version": "1.0.0",
-  "timestamp": "2024-12-13T15:30:00.000Z",
-  "config": {
-    "apiKeyPresent": true,
-    "leaguesCount": 8,
-    "timeWindowsCount": 3,
-    "dataRoot": "/home/kali/Downloads/meccsek",
-    "dataRootExists": false
-  },
-  "endpoints": [
-    "GET /windows",
-    "GET /limits",
-    "GET /tippek",
-    "GET /status",
-    "GET /files",
-    "GET /browse"
-  ]
-}
-```
-
-**Example:**
-```bash
-curl http://localhost:8081/status
-```
-
-#### GET /files
-Lists all available football data files.
-
-**Example:**
-```bash
-curl http://localhost:8081/files
-```
-
-#### GET /browse
-Browse football data files with filtering and pagination.
-
-**Query Parameters:**
-- `file` (required) - File path (relative or absolute)
-- `page` (optional) - Page number (default: 1)
-- `limit` (optional) - Results per page (default: 10)
-- `window` (optional) - Time window filter
-- `league` (optional) - League name filter
-
-**Example:**
-```bash
-curl "http://localhost:8081/browse?file=europe/england/2024-25_pl.json&limit=5"
-```
-
-### APK User Flow
-
-The API supports the following user flow for mobile APK:
-
-1. **Get available time windows**: Call `GET /windows`
-2. **User selects a time window**: e.g., "8-16"
-3. **Get available limits**: Call `GET /limits`
-4. **User selects match count**: e.g., 6
-5. **Get tips**: Call `GET /tippek?date=2024-12-13&timeWindow=8-16&limit=6`
-
-### Error Handling
-
-All endpoints return JSON responses. No HTML error pages are returned under any circumstances.
-
-**Common Error Response Format:**
-```json
-{
-  "ok": false,
-  "error": "Error type",
-  "message": "Detailed error message"
-}
-```
-
-**HTTP Status Codes:**
-- `200` - Success
-- `400` - Bad Request (invalid parameters)
-- `404` - Not Found (endpoint doesn't exist)
-- `500` - Internal Server Error
-
-### Troubleshooting
-
-#### "Cannot GET /tippek" Error
-- **Cause**: Server not running or endpoint not registered
-- **Solution**: Make sure you're running the latest version of server.js and restart the server
-
-#### 404 Not Found for all endpoints
-- **Cause**: Wrong port or server not started
-- **Solution**: Check that server is running on the correct port (default 8081)
-
-#### "API not configured" error
-- **Cause**: Missing or invalid API key
-- **Solution**: 
-  - Get an API key from https://www.api-football.com/
-  - Set `FOOTBALL_API_KEY` environment variable with your API key
-  - Or create a `.env` file with `FOOTBALL_API_KEY=your_key_here`
-
-#### No tips returned (empty array)
-- **Cause**: No matches on the specified date/time window, or API rate limiting
-- **Solution**: 
-  - Try a different date (e.g., next weekend)
-  - Try "all" time window instead of specific hours
-  - Check API key quota at https://www.api-football.com/
-
-#### Server fails to start
-- **Cause**: Port already in use
-- **Solution**: 
-  - Use a different port: `PORT=3000 npm start`
-  - Or kill the process using the port: `lsof -ti:8081 | xargs kill`
-
-#### Connection refused from mobile app
-- **Cause**: Firewall blocking connections or wrong host
-- **Solution**:
-  - Server binds to `0.0.0.0` to accept connections from any interface
-  - Check firewall settings
-  - Use the correct IP address of the server machine (not localhost)
-
-### Algorithm Details
-
-The tip generation algorithm:
-
-1. **Fetches fixtures** from major European leagues (Premier League, La Liga, Bundesliga, Serie A, etc.)
-2. **Fetches odds** from bookmakers for each fixture
-3. **Analyzes multiple bet types**:
-   - Match Winner (Home/Draw/Away)
-   - Double Chance (Home or Draw, Home or Away, Draw or Away)
-   - Over/Under 2.5 goals
-   - Both Teams to Score (Yes/No)
-4. **Selects the strongest tip** based on the lowest odds (highest probability)
-5. **Returns fixture metadata** including teams, league, date, venue, and odds
-6. **Handles missing data gracefully**: Returns `tip: null` if odds are unavailable
-
-### CORS Configuration
-
-CORS is enabled for all origins to allow the mobile APK to access the API from any domain.
+This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
 ## Learn more
 
@@ -331,4 +406,7 @@ Join our community of developers creating universal apps.
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
 
-# foci
+## License
+
+This project is part of the Okosfoci football tips application.
+
